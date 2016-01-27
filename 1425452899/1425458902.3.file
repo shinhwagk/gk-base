@@ -1,0 +1,4 @@
+```sbt
+ivy-release: http://115.29.52.6:8081/nexus/content/repositories/ivy-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+```
+

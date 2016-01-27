@@ -1,0 +1,31 @@
+```scala
+package com.example
+
+object Hello extends App{
+
+  //val只能重写另一个val
+  class abc{
+    //1
+    val ppp = "aaa"
+    //2
+    def vvv(a:Int) = println(a)
+    //3
+    def xxx = println("aaa")
+    //4
+    var a = 1
+  }
+
+  class cba extends abc{
+    //val字段可以重写一个val字段
+    override val ppp ="cba";
+    //def可以重写另一个def
+// override def vvv(b:String) = println(b)//错误,放的重写，是针对方法体的，不是方法的签名
+    override def vvv(a:Int) = println("xxx"+a)
+    //val可以重写一个不带参数的def
+    override val xxx = println("cba")
+    //var只能重写另一个抽象的var,所以一下的是错误的
+    override var a = 2
+  }
+}
+
+```

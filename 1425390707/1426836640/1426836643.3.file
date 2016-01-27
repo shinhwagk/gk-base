@@ -1,0 +1,6 @@
+##定义一个函数
+```scala
+val a = (x:Double) => x*3
+或者
+def a(x:Double) = x*3
+```

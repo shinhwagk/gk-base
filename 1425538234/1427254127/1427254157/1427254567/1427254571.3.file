@@ -1,0 +1,4 @@
+```scala
+new SparkConf().setAppName("WordCount1")
+//这个set参数和这个方法作用一样
+```

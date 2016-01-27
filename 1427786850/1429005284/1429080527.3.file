@@ -1,0 +1,44 @@
+```scala
+/**
+ * Created by goku on 2015/4/15.
+ */
+
+import java.io.{ByteArrayInputStream, ObjectInputStream, ByteArrayOutputStream}
+
+import kafka.consumer.ConsumerConfig
+import kafka.consumer.ConsumerIterator
+import kafka.consumer.KafkaStream
+import kafka.javaapi.consumer.ConsumerConnector
+import java.util.HashMap
+import java.util.List
+import java.util.Map
+import java.util.Properties
+object test {
+  def main(args: Array[String]) {
+    val props: Properties = new Properties
+    props.put("zookeeper.connect", "192.168.30.111:2181")
+    props.put("group.id", "pv")
+    props.put("auto.commit.interval.ms", "1000")
+    val conf: ConsumerConfig = new ConsumerConfig(props)
+    val consumer: ConsumerConnector = kafka.consumer.Consumer.createJavaConsumerConnector(conf)
+    val topic: String = "haha"
+    val topicCountMap: Map[String, Integer] = new HashMap[String, Integer]
+    topicCountMap.put(topic, new Integer(1))
+    val consumerMap: Map[String, List[KafkaStream[Array[Byte], Array[Byte]]]] = consumer.createMessageStreams(topicCountMap)
+    val streams: List[KafkaStream[Array[Byte], Array[Byte]]] = consumerMap.get(topic)
+    val stream: KafkaStream[Array[Byte], Array[Byte]] = streams.get(0)
+    val it: ConsumerIterator[Array[Byte], Array[Byte]] = stream.iterator
+    while (true) {
+      val byteInStream = new ByteArrayInputStream(it.next.message());
+      val ois2 = new ObjectInputStream(byteInStream);
+      val w2 = ois2.readObject().asInstanceOf[abc];
+      System.out.println("message: " + w2.a)
+      Thread.sleep(200)
+    }
+    if (consumer != null) consumer.shutdown
+  }
+}
+@SerialVersionUID(1170265062804866835L) class abc(val a:String,val b:String) extends Serializable{}
+//class abc(val a:String,val b:String) extends Serializable{}
+
+```

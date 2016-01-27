@@ -1,0 +1,7 @@
+```shell
+
+function abc(){ curl $1 | grep "href" | grep '<a' | grep -v 'Parent'| awk -F'href="' '{print $2}' | awk -F'">' '{print $1}' | while read; do mkdir $( awk -F "$1" '{print $2}');abc $read;done }
+
+
+abc https://repository.apache.org/content/groups/public/
+```

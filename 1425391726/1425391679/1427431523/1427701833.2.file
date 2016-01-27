@@ -1,0 +1,3 @@
+The ACL which controls who can administer applications on the given queue. 
+If the given user/group has necessary ACLs on the given queue or one of the parent queues in the hierarchy they can administer applications.
+ ACLs for this property are inherited from the parent queue if not specified.

@@ -1,0 +1,21 @@
+```scala
+val b = Map(1->"abc",2->"c") 
+b(1) // abc
+```
+
+#####查看key是否包含在map中
+```scala
+val b = Map(1 -> abc, 2 -> c);
+b.contains(1)// true
+```
+
+#####查看key是否包含在map中，如果在返回value，否则返回0
+```scala
+val b = Map(1 -> abc, 2 -> c);
+if(b.contains(1)) b(1) else 0
+```
+* 简写
+```scala
+b.getOrElse(1,0)
+```
+

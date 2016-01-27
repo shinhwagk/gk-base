@@ -1,0 +1,7 @@
+val source = Source.fromFile("z:/abc.txt")
+for ( a <- source) println(a)
+输出:
+A
+B
+C
+D

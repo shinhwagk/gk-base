@@ -1,0 +1,8 @@
+```scala
+val a = Array(99,1,2,3)
+a.mkString(" and ") //"99 and 1 and 2 and 3"
+a.mkString("<"," and ",">") //"<99 and 1 and 2 and 3>"
+```
+
+
+

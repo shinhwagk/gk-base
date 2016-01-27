@@ -1,0 +1,23 @@
+#####正解, 反解, Zone 的意义
+
+#####客户端设定DNS
+```shell
+/etc/hosts ：这个是最早的 hostname 对应 IP 的档案；
+/etc/resolv.conf ：这个重要！就是 ISP 的 DNS 服务器 IP 记录处；
+/etc/nsswitch.conf：这个档案则是在『决定』先要使用 /etc/hosts 还是 /etc/resolv.conf 的设定！
+```
+
+#####设定优先寻找解析目标
+```shell
+[root@www ~]# vim /etc/nsswitch.conf
+hosts: files dns
+```
+文件中files表示/etc/hosts文件，dns表示/etc/resolv.conf文件,这里表示优先使用/etc/hosts来解析我使用的域名
+
+#####常见问题:使用DHCP获取IP会自动刷新/etc/resolv.conf文件中的配置.
+使用DHCP获取Ip,会自动根据DHCP分配的DNS地址来刷新掉/etc/resolv.conf指定的ip。所以需要在/etc/sysconfig/network-scripts/ifcfg-eth0中增加一行:
+```shell
+PEERDNS=no
+```
+然后重启网络服务,另外鸟哥建议关闭Centos6的NetworkManger服务,因为他会产生未知的问题。
+

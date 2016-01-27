@@ -1,0 +1,1 @@
+这个之如果太小会报异常akka.remote.OversizedPayloadException: max allowed size 128001 bytes, actual size of encoded class [Lorg.gk.imlo.stream.TbllogRow; was 1241748 bytes.

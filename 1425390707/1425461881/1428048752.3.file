@@ -1,0 +1,14 @@
+```scala
+object test extends App{
+  new ccc; //输出abc
+
+  class ccc extends abc{
+    super.abc
+  }
+}
+
+class abc{
+  def abc = println("abc")
+
+}
+```

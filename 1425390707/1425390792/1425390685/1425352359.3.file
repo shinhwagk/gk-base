@@ -1,0 +1,40 @@
+#####定义数组
+```scala
+import scala.collection.mutable.ArrayBuffer
+
+val b = ArrayBuffer[Int]();//定义一个空数组,存放Int值
+```
+#####在尾端添加元素
+
+```scala
+b += 1;
+b += (1,2,3,4,5);
+
+```
+#####在尾端添加集合
+```scala
+b ++= Array(8,10,87);
+```
+#####移除最后5个元素
+```scala
+b.trimEnd(5);
+```
+
+#####在指定位置插入元素:在下标2之前插入元素集合(9,9,9)
+```scala
+b.insert(2,9,9,9); //ArrayBuffer(1, 11, 9, 9, 9, 0, 2, 3) 
+
+```
+#####移除某个元素
+```scala
+b.remove(2);
+b.remove(2,3);从第三个元素开始，移除3个元素
+```
+#####ArrayBuffer(数组缓冲)转为数组
+```scala
+val a = b.toArray;
+```
+#####数组转为数组缓冲
+```scala
+val c = a.toBuffer;
+```

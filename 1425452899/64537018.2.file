@@ -1,0 +1,1 @@
+方法3:在.sbt/下建立repositories文件来填写sbt参数

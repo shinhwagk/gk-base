@@ -1,0 +1,5 @@
+CREATE KEYSPACE Risky
+  WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 3 } AND DURABLE_WRITES = false;
+
+1.false意味着插入到这个keyspace的数据绕开commitlog,有丢失数据的风险
+2.这个选项不能使用在SimpleStrategy中

@@ -1,0 +1,4 @@
+zeppelin-env.sh
+  MASTER=yarn-client
+  HADOOP_CONF_DIR=/xxx/etc/hadoop
+bin/zeppelin-daemon.sh start

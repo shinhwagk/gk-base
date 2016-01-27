@@ -1,0 +1,16 @@
+#####for循环map
+```scala
+val b = Map(1 -> "a",2 ->"b");
+for((k,v) <- b ) println(k);
+```
+
+#####获得一个keySet
+```scala
+val b = Map(1 -> "a",2 ->"b");
+b.keySet // 1,2
+```
+
+#####key value互转
+```scala
+val e = for((k,v) <- b ) yield (v,k)
+```

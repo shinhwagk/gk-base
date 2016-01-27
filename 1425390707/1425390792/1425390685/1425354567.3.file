@@ -1,0 +1,25 @@
+#####数组转换
+```scala
+val a = Array(2,3,4,5,6);
+val b = for( v <- a ) yield 2 * v //4 6 8 10 12
+```
+#####ArrayBuffer转换
+```scala
+val a = ArrayBuffer(1,2,3)
+val b = for( v <- a ) yield 2 * v //2, 4, 6
+```
+* 这个转换不会操作原来的数组/ArrayBuffer，而是产生一个新数组/ArrayBuffer,如果操作的是一个数组，那么转换后也是数组，如果操作是一个ArrayBuffer那么转换后得到的也是一个ArrayBuffer
+
+#####过滤元素,并产生新的数组
+* 方法1
+```scala
+val a =  ArrayBuffer(1,2,3)
+for(v <- a if v > 2 ) yield 2 * v // 6
+```
+* 方法2
+```scala
+val a = ArrayBuffer(1,2,3)
+a.filter(_ > 2) map (2 * _)
+```
+
+###注意以上yield操作不会影响原始集合

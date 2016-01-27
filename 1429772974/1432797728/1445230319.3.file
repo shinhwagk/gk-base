@@ -1,0 +1,12 @@
+###环境变量
+```shell
+export HADOOP_COMMON_HOME=/opt/hadoop-2.7.0
+export HIVE_HOME=/opt/apache-hive-1.2.0-bin
+```
+
+###Oracle->Hive
+```sqoop
+./sqoop import --connect jdbc:oracle:thin:@218.202.225.211:1521/sh11 --username andrstore --password andrstore \
+--hive-import -m 3 --split-by tid --table TBLLOG --target-dir /log1 --hive-table TBLLOG --where "tid <100"
+```
+

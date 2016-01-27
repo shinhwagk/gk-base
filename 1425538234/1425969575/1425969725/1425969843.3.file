@@ -1,0 +1,13 @@
+```scala
+val a = sc.parallelize(List(1,2,3))
+a.sample(false,0.5).collect
+ //
+res67: Array[Int] = Array(1) 
+a.sample(false,0.5).collect
+ //res70: Array[Int] = Array(1, 2)
+a.sample(false,0.5).collect
+ //res72: Array[Int] = Array()
+```
+* 执行了3次每次给出的都不同。
+* 第一个参数是,是否改变原有的集合,可能给出和原有elements数量不同的RDD，但是范围还是原有这些,如:res79: Array[Int] = Array(1, 2, 2, 3)
+

@@ -1,0 +1,12 @@
+```kafka
+        Topic:test2 PartitionCount:3 ReplicationFactor:2 Configs: 
+        Topic: test2 Partition: 0 Leader: 0 Replicas: 0,1 Isr: 0,1 
+        Topic: test2 Partition: 1 Leader: 1 Replicas: 1,2 Isr: 1,2 
+        Topic: test2 Partition: 2 Leader: 0 Replicas: 2,0 Isr: 0,2 
+```
+第一行是对topic的概述。接下来的三行是对每个分区的描述。
+每一个分区都有一个broker为leader，它负责该分区内的所有读写操作，其他broker 被动的复制leader broker。如果leader broker 挂了，那么其他broker中的一个将自动成为该分区的新leader。
+
+Replicas: 0,1 表示该分区保存在 broker 0 和 broker 1下。
+
+Isr: 0,1 表示当前我们可以在 broker 0 和 broker 1 下访问该分区，如果 broker 0挂了，那就像这样子了 Isr: 1

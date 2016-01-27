@@ -1,0 +1,7 @@
+```shell
+yum install -y git
+git clone https://github.com/apache/incubator-zeppelin
+mvn clean package -Pspark-1.3 -Dhadoop.version=2.7.0 -Phadoop-2.7 -Pyarn -DskipTests
+```
+#如果git被墙，可以使用git的翻墙方法来完成编译时git下载那部分
+

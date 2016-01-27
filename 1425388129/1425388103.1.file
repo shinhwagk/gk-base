@@ -1,0 +1,1 @@
+print(md5(this_is_a_test_string));die();/*

@@ -1,0 +1,2 @@
+当exit容器时，保持容器继续运行。
+普通情况下，run一个容器后，exit容器，容器就shutdown了, 需要重新docker start CONTAINER ID

@@ -1,0 +1,10 @@
+```scala
+scala> val c = "AbcB".partition(_.isUpper)
+c: (String, String) = (AB,bc)
+
+scala> c
+res19: (String, String) = (AB,bc)
+
+scala> c._1
+res20: String = AB
+```

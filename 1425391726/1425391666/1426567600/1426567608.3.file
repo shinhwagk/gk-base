@@ -1,0 +1,62 @@
+ # 配置Ambari私有仓库
+###1. 安装nginx
+```shell
+ip:192.168.30.107
+html_dir:/usr/local/nginx/html
+
+```
+###2. 创建仓库目录
+```shell
+# cd /usr/local/nginx/html
+# mkdir -p ambari/centos6
+# mkdir -p hdp/centos6
+# cd /usr/local/nginx/html/ambari/centos6
+# reposync -r Updates-ambari-1.7.0
+
+```
+###3.下载rpm集合
+```shell
+wget http://public-repo-1.hortonworks.com/ambari/centos6/ambari-1.7.0-centos6.tar.gz
+wget http://public-repo-1.hortonworks.com/HDP/centos6/HDP-2.2.0.0-centos6-rpm.tar.gz /usr/local/nginx/html/hdp/centos6
+wget http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.20/repos/centos6/HDP-UTILS-1.1.0.20-centos6.tar.gz
+```
+
+###4.解压下载rpm集合到ambari规范的目录
+```shell
+tar zxvf ambari-1.7.0-centos6.tar.gz /usr/local/nginx/html/ambari/centos6 
+tar zxvf HDP-2.2.0.0-centos6-rpm.tar.gz /usr/local/nginx/html/hdp/centos6
+tar zxvf centos6/HDP-UTILS-1.1.0.20-centos6.tar.gz /usr/local/nginx/html/hdp/centos6
+```
+###5. 在每个节点上的/etc/yum.repos.d/配置ambari.repo和hdp.repo,yum源配置文件
+
+```shell
+#cat /etc/yum.repos.d/ambari.repo
+[Updates-ambari-1.7.0]
+name=ambari-1.7.0 - Updates
+baseurl=http://192.168.30.107/ambari/centos6/1.x/updates/1.7.0
+gpgcheck=1
+gpgkey=http://192.168.30.107/ambari/centos6/1.x/updates/1.7.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+enabled=1
+priority=1
+```
+
+```shell
+# cat /etc/yum.repos.d/hdp.repo
+[HDP-UTILS-1.1.0.20]
+name=Hortonworks Data Platform Version - HDP-UTILS-1.1.0.20
+baseurl=http://192.168.30.107/hdp/centos6/HDP-UTILS-1.1.0.20/repos/centos6
+gpgcheck=1
+gpgkey=http://192.168.30.107/hdp/centos6/HDP-UTILS-1.1.0.20/repos/centos6/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+enabled=1
+priority=1
+
+[HDP-2.2.0.0]
+name=Hortonworks Data Platform Version - HDP-2.2.0.0
+baseurl=http://192.168.30.107/hdp/centos6/HDP/centos6/2.x/GA/2.2.0.0
+gpgcheck=1
+gpgkey=http://192.168.30.107/hdp/centos6/HDP/centos6/2.x/GA/2.2.0.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+enabled=1
+priority=1
+```
+
+

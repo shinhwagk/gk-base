@@ -1,0 +1,7 @@
+###解决:
+1. 把conf/cqlshrc.sample 拷贝成~/.cassandra/cqlshrc
+2. 修改~/.cassandra/cqlshrc配置文件中的 [connection]，添加参数
+```text
+client_timeout = 20000
+```
+ps:官网的这个配置文件中的例子，有一个问题就是[cql].version会比较老是3.1.5，执行cqlsh时会报错，需要改掉，当前我改的版本是3.2.0

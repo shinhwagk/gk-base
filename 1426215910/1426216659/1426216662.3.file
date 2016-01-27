@@ -1,0 +1,6 @@
+```shell
+# yum update -y #更新内核
+# yum install epel-release #增加yum源
+# yum install docker-io -y #安装docker
+# service docker start #启动
+```

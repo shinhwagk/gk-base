@@ -1,0 +1,4 @@
+Maximum percent of resources in the cluster which can be used to run application masters - controls number of concurrent active applications.
+ Limits on each queue are directly proportional to their queue capacities and user limits. 
+Specified as a float - ie 0.5 = 50%. Default is 10%. 
+This can be set for all queues with yarn.scheduler.capacity.maximum-am-resource-percent and can also be overridden on a per queue basis by setting yarn.scheduler.capacity.<queue-path>.maximum-am-resource-percent

@@ -1,0 +1,30 @@
+```scala
+
+object Hello extends App {
+  val a = new test1
+  a.log("aaaa")
+}
+
+trait Logger{
+  def log(msg:String)
+}
+
+trait abc extends Logger{
+  abstract override def log(msg:String): Unit ={ //如果不加abstract错误，无法编译
+    super.log("xxx"+msg)
+  }
+}
+
+trait ccc extends Logger{
+  override def log(msg:String): Unit ={
+    println(msg)
+  }
+}
+
+class test1 extends ccc with abc
+```
+###讲解:
+1. 如果只拿出特质Logger和特质abc，明显abc会错误，因为super.log的实现在Logger中根本没有，因为他是抽象方法
+2. 但在scala中，不一定会错误，因为特质方法的实现，要根据他的排列来定义，在这里就在class test1
+3. abc的她的需求super.log不是Logger.log,而是ccc.log
+4. 但是在写特质abc代码的时候，编译器会报错，所以要把abc.log加上关键字abstract

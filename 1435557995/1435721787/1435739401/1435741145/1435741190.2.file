@@ -1,0 +1,7 @@
+$ curl -X POST -H "Content-type: application/json" localhost:8080/v2/apps -d '{
+    "id": "sleep-cluster",
+    "cmd": "sleep 60",
+    "instances": 3,
+    "constraints": [["rack_id", "CLUSTER", "rack-1"]]
+  }'
+modify: rack_id和rack-1,对应mesos-slave --attributes参数中自己定义的key和value

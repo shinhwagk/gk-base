@@ -1,0 +1,14 @@
+```scala
+def abc (args: Int*) ={
+  for (a <- args ){
+    println(a)
+  }
+}
+ abc(1,2,3)
+/*
+ 1
+ 2
+ 3
+*/
+
+```

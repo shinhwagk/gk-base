@@ -1,0 +1,1 @@
+在建立docker时运行，比如RUN yum install -y vim,你这个images天生就有vim了

@@ -1,0 +1,19 @@
+#1. 重写方法
+```scala
+object test extends App{
+  new ccc; //输出abc
+
+  class ccc extends abc{
+    def abc = println("ccc") //错误
+    override def abc = println("ccc") //正确
+  }
+}
+
+class abc{
+  def abc = println("abc")
+
+}
+
+```
+#2. 指出为什么需要在重写的方法前面加override
+* <<快学scala>>指出为什么需要在重写的方法前面加override，如当程序员A定义一个A类,之后有个程序员B用B类继承了这个A类，并且在B类中写了个a方法，这时一切正常，但是如果当程序员A为A类也增加了一个a方法，此时B类就会有问题,但是A类不会。所有用override来声明在B类的a方法上，这样不管A类是否有a方法,B类都不会有问题。

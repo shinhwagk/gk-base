@@ -1,0 +1,25 @@
+#####sum
+```scala
+Array(1,2,3).sum
+ArrayBuffer(1,2,3).sum
+```
+#####min/max
+```scala
+Array(1,2,3).min
+ArrayBuffer(1,2,3).min
+
+Array(1,2,3).max
+ArrayBuffer(1,2,3).max
+```
+#####排序数组
+```scala
+scala> val b = Array(99,1,2,3)
+scala> scala.util.Sorting.quickSort(b) 
+
+```
+#####排序数组不影响原来的数组
+```scala
+val b = Array(99,1,2,3)
+ b.sortWith(_>_) //99, 3, 2, 1
+ b.sortWith(_<_) //1, 2, 3, 99
+```

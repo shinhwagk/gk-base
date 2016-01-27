@@ -1,0 +1,51 @@
+#编译Hadoop 2.6 64bit
+##OS环境##
+Centos 6.5 64bit、base server安装
+
+##配置编译环境
+##0. 安装jdk##
+##1. 安装需要的rpm##
+```shell
+yum install lzo-devel zlib-devel gcc autoconf automake libtool ncurses-devel openssl-deve gcc-c++ cmake openssl-devel
+```
+##2. 下载hadoop源码包##
+```shell
+wget http://mirrors.cnnic.cn/apache/hadoop/common/current/hadoop-2.6.0-src.tar.gz 
+```
+##3. 安装MAVEN##
+```shell
+wget http://ftp.riken.jp/net/apache/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
+tar zxf apache-maven-3.2.5-bin.tar.gz -C /opt
+$ vi /etc/profile
+export MAVEN_HOME=/opt/apache-maven-3.2.5 
+export PATH=$PATH:$MAVEN_HOME/bin
+```
+##4. 安装ANT##
+```shell
+wget http://mirror.bit.edu.cn/apache/ant/binaries/apache-ant-1.9.4-bin.tar.gz
+$ vi /etc/profile 
+export ANT_HOME=/opt/apache-ant-1.9.4 
+export PATH=$PATH:$ANT_HOME/bin
+```
+##5. 安装findbugs##
+```shell
+wget http://prdownloads.sourceforge.net/findbugs/findbugs-2.0.3.tar.gz
+$ vi /etc/profile 
+export FINDBUGS_HOME=/opt/findbugs-2.0.3 
+export PATH=$PATH:$FINDBUGS_HOME/bin
+```
+
+##6. 安装protobuf##
+```shell
+$ tar zxf protobuf-2.5.0.tar.gz 
+$ cd protobuf-2.5.0 
+$ ./configure 
+$ make 
+$ make install
+```
+
+##7. 编译
+```shell
+mvn package -DskipTests -Pdist,native -Dtar
+```
+编译后需要的文件在hadoop-2.6.0-src/hadoop-dist/target/hadoop-2.6.0/lib/native

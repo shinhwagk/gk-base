@@ -1,0 +1,12 @@
+```scala
+import org.xmeta.ActionContext;
+import scala.collection.JavaConversions.maASJavaMap
+import java.awt.font.TestAttribute._
+
+object test{
+ def main(actionContext:ActionContext):Font = {
+      val b = Map(1->"abc");
+      new java.awt.Font(b);
+ }
+}
+```

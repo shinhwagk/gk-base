@@ -1,0 +1,59 @@
+docker run -it --rm -p 53:53/udp centos /bin/bash
+```shell
+yum install -y bind-chroot bind bind-utils bind-libs
+
+useradd bind
+
+chown bind:bind /etc/named.conf 
+chown bind:bind /var/named
+chown bind:bind /etc/named.rfc1912.zones
+chown bind:bind /run/named -R
+chown bind:bind /var/named -R
+/usr/sbin/named -g -u bind
+```
+
+
+//
+// named.conf
+//
+// Provided by Red Hat bind package to configure the ISC BIND named(8) DNS
+// server as a caching only nameserver (as a localhost DNS resolver only).
+//
+// See /usr/share/doc/bind*/sample/ for example named configuration files.
+//
+
+options {
+        listen-on port 53 { any; };
+        directory "/var/named";
+        dump-file "/var/named/data/cache_dump.db";
+        statistics-file "/var/named/data/named_stats.txt";
+        memstatistics-file "/var/named/data/named_mem_stats.txt";
+        allow-query { any; };
+
+        /* 
+         - If you are building an AUTHORITATIVE DNS server, do NOT enable recursion.
+         - If you are building a RECURSIVE (caching) DNS server, you need to enable 
+           recursion. 
+         - If your recursive DNS server has a public IP address, you MUST enable access 
+           control to limit queries to your legitimate users. Failing to do so will
+           cause your server to become part of large scale DNS amplification 
+           attacks. Implementing BCP38 within your network would greatly
+           reduce such attack surface 
+        */
+        recursion yes;
+        forwarders {
+                114.114.114.114;
+        };
+};
+
+logging {
+        channel default_debug {
+                file "data/named.run";
+                severity dynamic;
+        };
+};
+
+zone "." IN {
+        type hint;
+        file "named.ca";
+};

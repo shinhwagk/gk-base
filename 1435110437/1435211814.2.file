@@ -1,0 +1,2 @@
+import os
+tasks = os.popen('curl -X GET -H "Accept: application/json" http://192.168.12.40:8080/v2/apps/nginx421a/tasks').read()

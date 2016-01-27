@@ -1,0 +1,9 @@
+#####设置DNS转发错误信息
+no valid RRSIG和broken trust chain
+解决方法:
+1.查看系统时间是否正确
+2.设置/etc/named.conf以下两个参数为no:
+```shell
+    dnssec-enable no;
+ dnssec-validation no;
+```

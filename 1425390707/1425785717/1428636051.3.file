@@ -1,0 +1,9 @@
+```scala
+trait Ccc{ 
+  def log(msg:String) { println(msg) }
+}
+
+class Abc extends Ccc{
+  def abc { log("abc") }
+}
+```

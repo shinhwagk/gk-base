@@ -1,0 +1,11 @@
+```c
+#include <stdio.h>
+
+void main(){
+  double x;
+  int a,b;
+  b = sizeof(a);
+  printf("%d\n",b); #4:
+}
+
+```

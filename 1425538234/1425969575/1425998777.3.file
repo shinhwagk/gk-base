@@ -1,0 +1,19 @@
+##1. 建立表数据和链接
+```scala
+import org.apache.spark.sql.hive.HiveContext
+import org.apache.spark.sql.catalyst.types._
+import java.sql.Date
+val sparkContext = sc
+import sparkContext._
+val sqlContext = new HiveContext(sparkContext)
+import sqlContext._
+makeRDD((1,"hello") :: (2,"world") ::Nil).toSchemaRDD.cache().registerTempTable("t")
+import org.apache.spark.sql.hive.thriftserver._
+HiveThriftServer2.startWithContext(sqlContext)
+```
+
+##2. 使用jdbc来链接
+```scala
+./bin/beeline -u jdbc:hive2://localhost:10000/default 
+0: jdbc:hive2://localhost:10000/default> select * from t;
+```

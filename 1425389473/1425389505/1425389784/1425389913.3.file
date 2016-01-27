@@ -1,0 +1,17 @@
+#####架设DNS需要的包
+```shell
+[root@www ~]# rpm -qa | grep '^bind'
+bind-libs-9.7.0-5.P2.el6_0.1.x86_64 <==给 bind 与相关指令使用的函式库
+bind-utils-9.7.0-5.P2.el6_0.1.x86_64 <==这个是客户端搜寻主机名的相关指令
+bind-9.7.0-5.P2.el6_0.1.x86_64 <==就是 bind 主程序所需软件
+bind-chroot-9.7.0-5.P2.el6_0.1.x86_64 <==将 bind 主程序关在家里面！
+```
+* bind-chroot:表示<change to root(根目录)>的意思，root代表根目录，包表示将bind程序绑定在root(根目录)下面。CentOS6中:bind 锁在 /var/named/chroot这个目录里。
+
+
+zone file 
+的配置文件为 /etc/named.conf
+/etc/named.conf ：主配置文件
+/etc/sysconfig/named ：是否启动 chroot 及额外的参数，就由这个档案控制；
+/var/named/ ：数据库档案默认放置在这个目录
+/var/run/named ：named 这支程序执行时默认放置 pid-file 在此目录内。

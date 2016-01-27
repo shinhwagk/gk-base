@@ -1,0 +1,10 @@
+```scala
+object test extends App{
+  class ccc extends abc{ \\error
+
+  }
+}
+
+final class abc{}
+
+```

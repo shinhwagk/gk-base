@@ -1,0 +1,36 @@
+```scala
+import java.util.Properties
+
+import org.apache.kafka.clients.producer.{ProducerRecord, KafkaProducer, ProducerConfig}
+import org.apache.kafka.common.serialization._
+import java.io._
+
+object test {
+
+
+  def main(args: Array[String]) {
+
+
+    val props = new Properties();
+    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.30.111:9092");
+    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.ByteArraySerializer");
+    props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
+
+    val producer = new KafkaProducer[String, Array[Byte]](props);
+
+    val vv = new abc("xxx1aaaaaaaaaaaaa","aaaaaaaaaaaaa")
+    val byteOutStream = new ByteArrayOutputStream();
+    val oos2 = new ObjectOutputStream(byteOutStream);
+    oos2.writeObject(vv)
+
+
+    val topic = "haha";
+    val key: String = "mykey";
+    val producerRecord = new ProducerRecord[String, Array[Byte]](topic, key, byteOutStream.toByteArray);
+    producer.send(producerRecord);
+    producer.close()
+  }
+}
+@SerialVersionUID(1170265062804866835L) class abc(val a:String,val b:String,val c:String) extends Serializable{}
+//class abc(val a:String,val b:String) extends Serializable{}
+```

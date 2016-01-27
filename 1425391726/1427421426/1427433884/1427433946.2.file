@@ -1,0 +1,2 @@
+$ vi $HADOOP_CONF_DIR/capacity-scheduler.xml
+$ $HADOOP_YARN_HOME/bin/yarn rmadmin -refreshQueues

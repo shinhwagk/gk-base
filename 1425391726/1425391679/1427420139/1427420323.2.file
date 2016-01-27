@@ -1,0 +1,2 @@
+value: ${yarn.resourcemanager.hostname}:8031
+desc: null

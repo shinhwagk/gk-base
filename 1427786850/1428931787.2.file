@@ -1,0 +1,1 @@
+bin/kafka-topics.sh --zookeeper zk_host:port/chroot --delete --topic my_topic_name

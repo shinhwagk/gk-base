@@ -1,0 +1,6 @@
+```shell
+[root@cloud03 tmp]# docker run -it --name abc centos /bin/bash
+
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+98e1b7145431 centos "/bin/bash" 5 seconds ago Exited (0) 3 seconds ago abc  
+```

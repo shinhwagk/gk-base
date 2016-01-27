@@ -1,0 +1,3 @@
+nodetool listsnapshots
+nodetool snapshot -cf <table_name> <keyspace_name> 
+nodetool clearsnapshot -t <Snapshot name>

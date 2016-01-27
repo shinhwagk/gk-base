@@ -1,0 +1,2 @@
+curl -d "frameworkId=xxx" http://cloud01.anenjoy.com:5050/master/shutdown
+modify:xxx,xxx是框架ID

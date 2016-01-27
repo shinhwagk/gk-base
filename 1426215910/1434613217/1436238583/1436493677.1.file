@@ -1,0 +1,1 @@
+docker tag centos cloud03.anenjoy.com:5000/centos

@@ -1,0 +1,1 @@
+bin/kafka-console-producer.sh --broker-list zk1:9092 --sync --topic test

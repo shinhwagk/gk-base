@@ -1,0 +1,11 @@
+#配置Intellij_14 SBT环境
+##1. 安装插件
+```idea
+Plugins -> Install JetBrains plugins -> 搜索scala
+#这个插件可以创建有sbt目录规范的程序目录
+Plugins -> Browse Repositories -> 搜索sbt
+#这个插件可以让IDEA可以使用sbt 控制台
+```
+##2. 新建sbt项目
+
+##3.

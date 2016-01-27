@@ -1,0 +1,1 @@
+lsof（list open files）是一个列出当前系统(进程)打开文件的工具。

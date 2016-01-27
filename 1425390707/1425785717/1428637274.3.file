@@ -1,0 +1,91 @@
+```scala
+object Hello extends App {
+  val a = new test1
+  a.log("abc")
+  println("==============================================")
+  val b = new test2
+  b.log("cba")
+}
+
+trait Logger{
+  def log(msg:String) { println(msg + "!")}
+}
+
+trait abc extends Logger{
+  override def log(msg:String): Unit ={
+    println("abc 1")
+    super.log("xxx"+msg)
+  }
+}
+trait cba extends Logger{
+  override def log(msg:String):Unit = {
+    println("cba 1")
+    super.log("yyy"+msg)
+  }
+}
+class test1 extends abc with cba{}
+class test2 extends cba with abc{}
+```
+```scala
+/*
+输出
+cba 1
+abc 1
+xxxyyyabc!
+==============================================
+abc 1
+cba 1
+yyyxxxcba!
+*/
+```
+#### 多个特质叠加在一起，是从最后一个开始执行的，在这里执行方式如下:
+1. new test1 后，首先cba特质被执行，然后是abc，最后是Logger
+2. 书中说，无法从源码看出super.方法看出会执行到哪里，这个要看特质的顺序
+
+###可以通过super[CLASS]来指定那个方法被调用
+```scala
+object Hello extends App {
+  val a = new test1
+  a.log("abc")
+  println("==============================================")
+  val b = new test2
+  b.log("cba")
+}
+
+trait Logger{
+  def log(msg:String) {
+    println("Logger 3")
+    println(msg + "!")
+  }
+}
+
+trait abc extends Logger{
+  override def log(msg:String): Unit ={
+    println("abc 1")
+    super.log("xxx"+msg)
+  }
+}
+trait cba extends Logger{
+  override def log(msg:String):Unit = {
+    println("cba 1")
+    super[Logger].log("yyy"+msg)
+  }
+}
+
+class test1 extends abc with cba{}
+class test2 extends cba with abc{}
+```
+```scala
+/*
+cba 1
+Logger 3
+yyyabc!
+==============================================
+abc 1
+cba 1
+Logger 3
+yyyxxxcba!
+*/
+```
+####在这里 new test1 中abc的log被跳过了,因为我使用了super[Logger]，所以abc的log没有被使用.
+

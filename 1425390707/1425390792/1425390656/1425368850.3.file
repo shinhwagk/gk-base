@@ -1,0 +1,4 @@
+```scala
+import scala.collection.immutable.LinkedHashMap;
+LinkedHashMap(10->"c",11->"b")
+```

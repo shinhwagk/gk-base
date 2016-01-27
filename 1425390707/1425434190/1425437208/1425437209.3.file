@@ -1,0 +1,22 @@
+```scala
+class Counter{
+ private var value = 0
+ def increment()( value +=1 )
+ def current() = value
+}
+```
+* 调用无参方法时可以在方法名结尾加上括号，也可以不加
+```scala
+val abc = new Counter;
+abc.increment();
+abc.increment;
+```
+
+#####也可以通过以下形式来强制调用时不写括号
+```scala
+class Counter{
+ private var value = 0
+ def increment()( value +=1 )
+ def current = value //定义方法时就不写括号
+}
+```

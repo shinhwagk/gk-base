@@ -1,0 +1,2 @@
+这个参数设置每个队列可用的资源百分比.在每个级别的queues中，他们的总和必须是100%.例如:50、40，不用加百分号
+注意:当有整个cluster有空余可用的资源时，这个限制会被突破,hadoop称这个叫"弹性" ,如果要严格限制一个queue的资源使用，使用参数yarn.scheduler.capacity.<queue-path>.maximum-capacity

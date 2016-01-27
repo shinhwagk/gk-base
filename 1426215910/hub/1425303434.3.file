@@ -1,0 +1,4 @@
+```shell
+# docker pull shinhwagk/ccc:abc
+```
+重点是你push的时候一定要打上tag,然后在pull时候使用这个tag.

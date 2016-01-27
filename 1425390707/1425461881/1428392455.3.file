@@ -1,0 +1,19 @@
+```scala
+object Hello extends App {
+
+ abstract class abc {
+   //抽象字段,没有初始化,只有getter方法
+   val a:Int
+   //抽象字段,没有初始化，有setter和getter方法
+   var b:String
+  }
+
+  class cba extends abc{
+    val a = 1;
+    var b = "a";
+  }
+
+  val c = new cba
+  println(c.b)
+}
+```

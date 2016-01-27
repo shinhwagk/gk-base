@@ -1,0 +1,4 @@
+```scala
+printf("Hello,%s! You are %d years old.\n","Fred",42);
+//Hello,Fred! You are 42 years old.
+```

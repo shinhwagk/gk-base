@@ -1,0 +1,39 @@
+###scala中调用超类的构造器,方法1,直接给超类构造器参数赋值
+```scala
+
+object Hello extends App{
+
+  class abc(val a:Int)
+  class cba extends abc(1){
+    def abc = println(a)
+  }
+  val a = new cba;
+  println(a.abc)
+
+}
+```
+###scala中调用超类的构造器,方法2.获得子类构造器参数
+```scala
+object Hello extends App{
+
+  class abc(val a:Int)
+  class cba(val b:Int) extends abc(b){
+    def abc = println(a)
+  }
+  val a = new cba(1);
+  println(a.abc)
+
+}
+
+```
+* abc的初始化的参数，被带入了cba类中做初始化
+* scala中不支持在子类中使用supper关键字构造超类
+
+###scala中调用java的构造器,方法和上面的方法2一样
+```scala
+object Hello extends App{
+
+  class Square(x:Int, Y:Int, width:Int) extends java.awt.Rectangle(x, y, width, width)
+
+}
+```

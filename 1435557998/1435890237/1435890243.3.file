@@ -1,0 +1,29 @@
+###1. 安装go语言,配置环境变量
+```
+export GOPATH=/tmp/gotmp
+export GOROOT=/opt/go
+
+```
+###2. 下载yaml
+```
+git clone https://github.com/go-yaml/yaml
+注意你的GOPATH位置,在GOPATH下面建立目录/tmp/gotmp/src/gopkg.in/yaml.v2
+把下载下来的yaml目录的内容拷贝到，yaml.v2下面
+```
+
+###3.执行yaml包
+```
+go get gopkg.in/yaml.v2
+如果执行hang住，查看GOPATH下面/tmp/gotmp/src/gopkg.in/yaml.v2目录是否还有内容，如果没有重复第2步。
+```
+
+###4. 进入consul-template目录
+```
+git clone https://github.com/hashicorp/consul-template
+cd consul-template
+make
+```
+
+consul-template官网的make方式会hang在go get gookg.in.yaml.v2,发现他其实是要去GOPATH下面找到gopkg.in/yaml.v2这个目录找需要go get的内容.所以先get再make，同时会产生GOPATH/src/pkg，应该是说明安装好了
+
+

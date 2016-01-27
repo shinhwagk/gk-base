@@ -1,0 +1,12 @@
+##安装yum工具
+```shell
+yum -y install yum-utils
+```
+
+##使用yum-utils中的yumdownloader工具
+```shell
+#查看工具是否存在
+rpm -ql yum-utils| grep yumdownloader
+#使用工具下载rpm,例子:下载gcc,他默认是放在当前目录
+yumdownloader gcc
+```

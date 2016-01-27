@@ -1,0 +1,7 @@
+```text
+repositories {
+    maven {
+        url "http://repo.mycompany.com/maven2"
+    }
+}
+```

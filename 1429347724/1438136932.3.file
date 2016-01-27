@@ -1,0 +1,16 @@
+```scala
+
+class a extends Actor {
+  //用于接收消息的，scala 匹配模式match
+  override def receive: Receive = {
+    case _ =>
+      println("x")
+
+  }
+  //加载时就执行的方法
+  override def preStart(): Unit ={
+    println("xxx")
+  }
+}
+
+````

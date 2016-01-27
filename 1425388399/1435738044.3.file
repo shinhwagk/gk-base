@@ -1,0 +1,30 @@
+```shell
+编译的时候增加参数 --with-stream
+
+```
+###nginx.conf
+```
+worker_processes auto;
+
+error_log /var/log/nginx/error.log info;
+
+stream {
+    upstream backend {
+        hash $remote_addr consistent;
+        server 192.168.12.40:31001;
+        server 192.168.12.42:31000;
+    }
+
+    server {
+        listen 12345;
+        proxy_connect_timeout 1s;
+        proxy_timeout 3s;
+        proxy_pass backend;
+    }
+
+}
+events {
+    worker_connections 1024;
+}
+```
+用端口12345 负载其他两个机器的31001,31000

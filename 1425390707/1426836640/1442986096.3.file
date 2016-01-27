@@ -1,0 +1,40 @@
+###定义一个函数函数有一个参数Int,这个函数的返回值String，这里的myInt自动就是Function1中定义的数据类型
+```scala
+scala> val f: Function1[Int,String] = myInt => "my int: "+myInt.toString
+  f: (Int) => String = <function1>
+
+  scala> f(0)
+  res0: String = my int: 0
+```
+
+###定义一个函数f2，这个函数是参数Int结果String，这里的myInt在(Int =>String)中已经定义了为Int
+```scala
+  scala> val f2: Int => String = myInt => "my int v2: "+myInt.toString
+  f2: (Int) => String = <function1>
+
+  scala> f2(1)
+  res1: String = my int v2: 1
+```
+
+###定义一个函数，参数是()没有,返回值是Unit
+```scala
+ scala> val f: () => Unit = () => { println("x")}
+ f: () => Unit = <function0>
+
+ scala> f()
+ x
+```
+###定义一个函数，Function0表示没有参数，返回值是Unit。
+```scala
+scala> val f2: Function0[Unit] = () => println("x2")
+f: () => Unit = <function0>
+
+scala> f2()
+x2
+```
+
+####Function0或Function1中的0和1表示参数的数量
+```scala
+scala> val f2: Function2[Int,Int,String] = (a,b) => a
+f2: (Int, Int) => String = <function2>
+```

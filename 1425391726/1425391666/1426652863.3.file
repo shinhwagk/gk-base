@@ -1,0 +1,94 @@
+##虚拟机列表
+VmwareName | OS Vsersion | Hostname | Ip
+----------------------------------------|
+OpenSourceYarn01 | Centos 6.5 64bit | yarn01.cloud.com | 192.168.30.101
+OpenSourceYarn02 | Centos 6.5 64bit | yarn02.cloud.com | 192.168.30.102
+OpenSourceYarn03 | Centos 6.5 64bit | yarn03.cloud.com | 192.168.30.103
+
+##Yarn软件栈目录(规范,之后的软件按照这个目录规范安装)
+ * /yarn/app
+ * /yarn/app/spark
+ * /yarn/app/hadoop
+ * /yarn/app/hbase
+ * /yarn/app/java/
+
+```shell
+mkdir -p /yarn/app
+mkdir -p /yarn/app/spark
+mkdir -p /yarn/app/hadoop
+mkdir -p /yarn/app/hbase
+mkdir -p /yarn/app/java
+mkdir -p /yarn/app/scala
+```
+##Yarn数据目录(规范,之后的软件按照这个目录规范安装)
+* /yarn/data
+* /yarn/data/spark
+* /yarn/data/hadoop
+* /yarn/data/hbase
+* /yarn/data/hdfs/namenode
+* /yarn/data/hdfs/data01
+
+```shell
+mkdir -p /yarn/data
+mkdir -p /yarn/data/spark
+mkdir -p /yarn/data/hadoop
+mkdir -p /yarn/data/hbase
+mkdir -p /yarn/data/hdfs/namenode
+mkdir -p /yarn/data/hdfs/data01
+```
+
+##Yarn用户
+ * hadoop
+ * hbase
+ * spark
+
+```shell
+groupadd hadoop
+useradd -g hadoop hadoop
+useradd -g hadoop spark
+useradd -g hadoop hbase
+```
+##修改目录权限
+```shell
+chown hadoop:hadoop /yarn
+chown hadoop:hadoop /yarn/app -R
+chown hadoop:hadoop /yarn/data -R
+
+chown hbase:hadoop /yarn/app/hbase -R
+chown spark:hadoop /yarn/app/spark -R
+
+chown hbase:hadoop /yarn/data/hbase -R
+chown spark:hadoop /yarn/data/spark -R
+
+```
+##设置linux打开最大文件数
+```shell
+cat /etc/security/limits.conf #增加以下内容到文件中
+root ulimit -Sn 10000
+root ulimit -Hn 10000
+
+```
+
+##关闭iptables
+
+```shell
+chkconfig iptables off
+/etc/init.d/iptables stop
+```
+
+##关闭SELinux
+
+```shell
+# setenforce 0
+vim /etc/selinux/config
+修改SELINUX为disable
+```
+
+#配置ssh免密 
+
+```shell
+# ssh-keygen
+# cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+# chmod 700 ~/.ssh
+# chmod 600 ~/.ssh/authorized_keys
+```

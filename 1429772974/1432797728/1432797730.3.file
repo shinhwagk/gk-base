@@ -1,0 +1,3 @@
+```sqoop
+./sqoop import --connect jdbc:oracle:thin:@192.168.20.216:1521/biee --username apststat --password apststat --hive-import -m 10 --verbose --split-by 4 --query='SELECT * from TBLLOG WHERE rownum< 10 and $CONDITIONS' --target-dir /log --hive-table tbllog
+```

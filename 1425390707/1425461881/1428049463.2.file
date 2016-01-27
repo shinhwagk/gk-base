@@ -1,0 +1,3 @@
+object.isInstanceOf[Class]
+object.asInstanceOf[Class]
+classof[Class]

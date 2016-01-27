@@ -1,0 +1,8 @@
+```json
+$ curl -X POST -H "Content-type: application/json" localhost:8080/v2/apps -d '{
+    "id": "sleep-cluster",
+    "cmd": "sleep 60",
+    "instances": 3,
+    "constraints": [["hostname", "CLUSTER", "a.specific.node.com"]]
+  }'
+modify:a.specific.node.com

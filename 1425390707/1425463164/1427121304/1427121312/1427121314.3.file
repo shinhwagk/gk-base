@@ -1,0 +1,10 @@
+```scala
+import scala.util.control.Breaks._
+    for (i <- 1 to 10){
+      if ( i == 5 ){
+        println(i)
+        break;
+      }
+    }
+```
+####scala没有break和contnue这种循环退出代码.但是可以这个例子中的方法,不过遮盖break方法是一个异常抛出,来达到终止的目的。

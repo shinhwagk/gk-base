@@ -1,0 +1,16 @@
+
+```scala
+object Hello extends App {
+
+  class abc{
+    val a = 10
+    println(a)
+  }
+  class cba extends{override val a = 8} with abc{
+    println(a)
+  }
+
+  val a = new cba
+
+}
+```

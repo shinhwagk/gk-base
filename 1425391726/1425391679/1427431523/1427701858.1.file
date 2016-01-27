@@ -1,0 +1,2 @@
+yarn.scheduler.capacity.maximum-applications 
+yarn.scheduler.capacity.<queue-path>.maximum-applications

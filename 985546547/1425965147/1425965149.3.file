@@ -1,0 +1,13 @@
+ 
+
+
+##停止spark
+1. 方法1
+```scala
+sc.stop()
+```
+2. 方法2
+```scala
+System.exit(0)
+sys.exit()
+```

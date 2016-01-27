@@ -1,0 +1,53 @@
+#安装Ambari 1.7.0
+###1. 安装rpm
+```shell
+# yum install -y scp curl unzip tar wget python openssh-clients ntp
+```
+###2. 安装JDK
+* Oracle JDK 1.7_67 64-bit
+
+###3. 设置linux最大打开文件数
+```shell
+cat /etc/security/limits.conf #增加以下内容到文件中
+root ulimit -Sn 10000 
+root ulimit -Hn 10000
+```
+###4.配置ssh免密
+```shell
+# ssh-keygen
+# cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+# chmod 700 ~/.ssh
+# chmod 600 ~/.ssh/authorized_keys
+```
+###5. 启动NTP
+```shell
+
+```
+###6. 关闭iptables
+```shell
+# chkconfig iptables off
+# /etc/init.d/iptables stop
+```
+###7. 关闭SELinux
+```shell
+# setenforce 0
+vim /etc/selinux/config
+修改SELINUX为disable
+```
+###8. 修改文件默认创建权限
+```shell
+echo 'umask 022' >> /etc/profile
+```
+###9. 禁止PackageKit后台运行
+```shell
+# vim /etc/yum/pluginconf.d/refresh-packagekit.conf #添加
+# enabled=0 
+```
+###10. Transparent Huge Pages 禁用
+```shell
+echo never > /sys/kernel/mm/redhat_transparent_hugepage/defrag
+echo never > /sys/kernel/mm/redhat_transparent_hugepage/enabled
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
+echo never > /sys/kernel/mm/transparent_hugepage/defrag
+```
+

@@ -1,0 +1,16 @@
+###子类和子类的对象都可以访问protected修饰符修饰的字段
+```scala
+object abc extends App{
+    val a = new cba; 
+    println(a.abc)
+    //注意一下方式是不行的
+    println(a.a)// 正确
+    println(a.b)//
+}
+
+class abc { protected val a = 1 }
+class cba extends abc{
+  val b = 2
+  def abc = println(a)
+}
+```

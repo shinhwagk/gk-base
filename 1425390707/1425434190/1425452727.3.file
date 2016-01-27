@@ -1,0 +1,54 @@
+```scala
+class afd(a:String) {
+  println(a)
+  println("caaaa")
+}
+
+object cba {
+  def main(args:Array[String]):Unit={
+     new afd("czzzzzzzzzzzzz")
+  }
+}
+
+/*
+czzzzzzzzzzzzz
+caaaa
+*/
+```
+1. 主构造器的参数不用写在类的花括号里面，直接写在类名后面. 
+2. class被实例化后，会执行类中的每一个语句，也就是上面两条查询语句会被执行.
+
+###直接在构造器中定义类的属性
+```scala
+class afd(val a:String) {
+  
+}
+
+object cba {
+  def main(args:Array[String]):Unit={
+     val a = new afd("czzzzzzzzzzzzz")
+     println(a.a);
+//czzzzzzzzzzzzz
+  }
+}
+```
+* 这个例子中主构造器参数前加了val，如果不加的话,至少被一个方法所调用，那么他可以成为class的属性,但是这个属性是private[this] val.
+
+```scala
+class afd(val a:String) {
+  def abc = println(a)
+}
+
+object cba {
+  def main(args:Array[String]):Unit={
+     val a = new afd("czzzzzzzzzzzzz")
+     println(a.a);
+  }
+}
+```
+
+
+##### 强制用户使用辅助构造器来建立对象
+```scala
+class abc private(val id:Int){...}
+```

@@ -1,0 +1,1 @@
+给镜像另外起一个名字，但是images id不变，需要删除的话直接用REPOSITORY

@@ -1,0 +1,2 @@
+value: ${yarn.resourcemanager.hostname}:8033
+desc: The address of the RM admin interface.

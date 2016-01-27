@@ -1,0 +1,5 @@
+```docker
+docker run -it -v /tmp:/abc centos /bin/bash
+#/tmp是系统目录,/abc是容器目录
+
+```

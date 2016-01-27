@@ -1,0 +1,25 @@
+#####使用匹配模式来获得元组的组元
+```scala
+val t= (1,3.14,"a") //建立一个tuple
+val (first,second,third,a) = t
+//输出
+first: Int = 1
+second: Double = 3.14
+third: String = a
+a: Int = 2
+
+scala> print(first)
+1
+```
+
+#####只想获得部分组元
+```scala
+scala> val (first,second,third,_) = t
+//输出
+first: Int = 1
+second: Double = 3.14
+third: String = a
+
+scala> print(first)
+1
+```

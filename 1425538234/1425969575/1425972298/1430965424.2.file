@@ -1,0 +1,2 @@
+从jdbc数据库中获取数据
+使用这个函数创建RDD一定要把JDBC驱动指定在 SPARK_CLASS_PATH中

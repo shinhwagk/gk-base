@@ -1,0 +1,123 @@
+$$
+A=\begin{bmatrix}
+1&0&1\\\
+0&2&1\\\
+1&1&1
+\end{bmatrix}
+$$
+###矩阵的余子式(Matrix of minors)
+#####分别除去第一行第一列，得到一个行列式,并且是绝对值;接下来是除去第一行第二列，得到一个行列式,并取绝对值;然后是第一行第三列...;第二行第一列...;...;以此类推，然后分别计算每一个行列式的值，如何计算呢?比如第一个行列式,行1(1):2和行1(2):1,行2(1):1和行2(1:)1，那么用行1(1)乘以行2(2) 减去 行2(1)乘以行1(2):
+$$
+\begin{bmatrix}
+\begin{vmatrix}
+2&1\\\
+1&1
+\end{vmatrix}
+\begin{vmatrix}
+0&1\\\
+1&1
+\end{vmatrix}
+\begin{vmatrix}
+0&2\\\
+1&1
+\end{vmatrix}\\\
+\begin{vmatrix}
+0&0\\\
+1&1
+\end{vmatrix}
+\begin{vmatrix}
+1&1\\\
+1&1
+\end{vmatrix}
+\begin{vmatrix}
+1&0\\\
+1&1
+\end{vmatrix}\\\
+\begin{vmatrix}
+0&1\\\
+2&1
+\end{vmatrix}
+\begin{vmatrix}
+1&1\\\
+0&1
+\end{vmatrix}
+\begin{vmatrix}
+1&0\\\
+0&2
+\end{vmatrix}
+\end{bmatrix}
+=
+\begin{bmatrix}
+  \begin{vmatrix}
+    2 \times 1 - 1 \times 1  
+  \end{vmatrix}&
+  \begin{vmatrix}
+    0 \times 1 - 1 \times 1
+  \end{vmatrix}&
+  \begin{vmatrix}
+    0 \times 1 - 1 \times 2
+  \end{vmatrix}\\\
+. & . & . \\\
+. & . & .
+\end{bmatrix}
+=
+\begin{bmatrix}
+ 1 & -1 & -2 \\\
+-1 & 0 & 1 \\\
+-2 & 1 & 2
+\end{bmatrix}
+这就是矩阵的余子式.
+$$
+###接下来要把上面获得余子式 变成 代数余子式(matrix of cofactors)
+#####用下面的样式应用到上面的余子式，就可以得到代数余子式
+$$
+\begin{bmatrix}
++ & - & + \\\
+- & + & - \\\
++ & - & +
+\end{bmatrix}
+得到代数余子式:
+\begin{bmatrix}
+ 1 & 1 & -2 \\\
+ 1 & 0 & -1 \\\
+-2 & -1 & 2
+\end{bmatrix}
+$$
+###接下来要,求这个代数余子式的伴随矩阵(adjoint(adjugate) of matrix)
+#####置换成,伴随矩阵的宗旨就是对角线上的元素对换,但是首先行1和列1的元素都是相同的所以,行1(1)和行3(3)位置不变，然后因为对角线互换,那么行1(2)和行2(1)对换,行3(1)和行1(3)，行3(2)和行2(3)分别对换，得到如下:
+$$adj(a)=
+\begin{bmatrix}
+ 1 & 1 & -2 \\\
+ 1 & 0 & -1 \\\
+-2 & -1 & 2
+\end{bmatrix}
+$$
+
+###最后求A的逆矩阵: A的逆 等于 1除以A的行列式再乘上他的伴随矩阵:
+$$
+A^{-1}=\frac{1}{\begin{vmatrix}A\end{vmatrix}}\begin{bmatrix}
+ 1 & 1 & -2 \\\
+ 1 & 0 & -1 \\\
+-2 & -1 & 2
+\end{bmatrix}
+$$
+####首先
+$$
+\begin{vmatrix}
+A
+\end{vmatrix}
+=
+矩阵A和代数余子式(matrix of cofactors)的对位相乘
+=
+\begin{bmatrix}
+ 1 \times  1 & 0 \times 1 & 1 \times -2 \\\
+ 0 \times  1 & 2 \times 0 & 1 \times -1 \\\
+ 1 \times  -2 & 1 \times -1 & 1 \times 2
+\end{bmatrix}
+=
+\begin{bmatrix}
+ 1 & 0 & -2 \\\
+ 0 & 0 & -1 \\\
+-2 & -1 & 2
+\end{bmatrix}
+$$

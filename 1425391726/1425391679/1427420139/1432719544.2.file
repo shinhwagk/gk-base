@@ -1,0 +1,5 @@
+value:8
+desc:Number of vcores that can be allocated for containers. 
+This is used by the RM scheduler when allocating resources for containers. 
+This is not used to limit the number of physical cores used by YARN containers.
+集群对于这台机器可用的核心数量

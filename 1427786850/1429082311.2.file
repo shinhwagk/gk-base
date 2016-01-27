@@ -1,0 +1,1 @@
+bin/kafka-console-consumer.sh --zookeeper zk1:2181 --topic test --from-beginning

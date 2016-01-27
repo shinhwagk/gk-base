@@ -1,0 +1,1 @@
+ badblocks -v /dev/sdb > /tmp/bad-blocks.txt

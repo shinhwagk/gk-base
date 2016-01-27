@@ -1,0 +1,15 @@
+####今天在js代码中加了一句window.location.href（‘url’）希望实现页面的跳转，IE中可以正常使用，但是Firefox却提示 window.location is not a function。
+
+#####下面的格式可以在IE中正常执行，但是不能在Firefox和Chrome中执行： 
+
+```javascript
+    window.location.href("http://stackoverflow.com");
+```
+#####下面的格式可以以上三个浏览器中全部正常执行：
+
+```javascript
+   window.location.href = "http://stackoverflow.com"; 
+```
+
+#####此外，在搜索中发现，window.location.href='Url'在Firefox中也会遇到无法正常执行的原因，推荐的方法是window.location='Url'.因为，有些浏览器中window.location.href是只读属性。 
+  

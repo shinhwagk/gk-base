@@ -1,0 +1,6 @@
+```scala
+val line = sc.parallelize(List("a","b"));
+```
+```scala
+val line = sc.parallelize(Seq("a","b"))
+```

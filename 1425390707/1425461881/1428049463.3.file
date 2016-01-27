@@ -1,0 +1,18 @@
+###检查某个对象是否属于某个类
+```scala
+object Hello extends App{
+
+  //类型检查
+  class abc { val a = 1 }
+  class cba extends abc{ val b = 1 }
+  val a = new cba;
+  println(a.isInstanceOf[abc])
+
+  //类型转换
+,把一个Int值转为Long值
+  val c = 1
+  val d = c.asInstanceOf[Long]
+  println(d.getClass)
+
+}
+```

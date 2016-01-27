@@ -1,0 +1,3 @@
+The multiple of the queue capacity which can be configured to allow a single user to acquire more resources. 
+By default this is set to 1 which ensures that a single user can never take more than the queue's configured capacity irrespective of how idle th cluster is. 
+Value is specified as a float.

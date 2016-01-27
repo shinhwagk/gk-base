@@ -1,0 +1,5 @@
+#####创建排序的map
+```scala
+import scala.collection.immutable.SortedMap;
+SortedMap(1 ->"a",2->"b");
+```

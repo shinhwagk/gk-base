@@ -1,0 +1,20 @@
+```shell
+while (($#)); do
+  if [ "$1" = "--deploy-mode" ]; then
+    SPARK_SUBMIT_DEPLOY_MODE=$2
+  elif [ "$1" = "--properties-file" ]; then
+    SPARK_SUBMIT_PROPERTIES_FILE=$2
+  elif [ "$1" = "--driver-memory" ]; then
+    export SPARK_SUBMIT_DRIVER_MEMORY=$2
+  elif [ "$1" = "--driver-library-path" ]; then
+    export SPARK_SUBMIT_LIBRARY_PATH=$2
+  elif [ "$1" = "--driver-class-path" ]; then
+    export SPARK_SUBMIT_CLASSPATH=$2
+  elif [ "$1" = "--driver-java-options" ]; then
+    export SPARK_SUBMIT_OPTS=$2
+  elif [ "$1" = "--master" ]; then
+    export MASTER=$2
+  fi
+  shift
+done
+```

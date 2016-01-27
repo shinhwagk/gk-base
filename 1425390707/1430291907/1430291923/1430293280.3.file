@@ -1,0 +1,19 @@
+```scala
+object test {
+
+    def main(args: Array[String]) {
+      val ch = abc(1)
+      val cc = abc(2)
+      cc match {
+        case abc => println(abc.a)
+        case ch => println(ch.a)
+        case _ => println("abchaha")
+      }
+    }
+}
+
+case class abc(val a:Int)
+
+```
+1. 如果case后面跟的是变量名，那么匹配的表达式会被赋值给那个变量
+2. case后面变量一般是小写开头，大写scala规范成常量,如果开头的常量，那么用反上引号括起来使用.

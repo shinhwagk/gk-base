@@ -1,0 +1,15 @@
+```c
+#include <stdio.h>
+
+void main(){
+  int a = getchar();
+
+  while( a != EOF){
+    putchar(a);
+    a = getchar();
+    printf("abc\n");
+  }
+}
+getchar和putchar每次只能处理一个char，getchar一个a，那么putchar操作就是输出这个a，尽管你可以输入可以写很长一串比如“123456”，但是他是一个一个处理的，
+所以在while循环中，每次把下一个输入的char给到a来给到whilep是不是结尾
+```

@@ -1,0 +1,11 @@
+tuple(元组)可以在一个列表中放不同类型的元素
+```scala
+ val pair= (90,"Luftballons")
+ println(pair._1)
+ println(pair._2)
+ println(pair _2)//不用空格也可以
+ scala> val abc =('a',1,"c")
+ abc: (Char, Int, String) = (a,1,c)
+```
+* tuple下标以1开始，scala元组仅支持最多22个元素
+

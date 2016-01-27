@@ -1,0 +1,27 @@
+#升级git
+
+#####安装rpmforge源
+```shell
+# rpm -i http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+```
+#####安装证书
+```shell
+# rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
+```
+#####更新rpmforge-extra源
+```shell
+# yum --enablerepo=rpmforge-extras update
+```
+#####安装Git
+插槽可用的git模块
+```shell
+# yum --enablerepo=rpmforge-extras provides git
+```
+#####安装git-1.7.11
+```shell
+# yum --enablerepo=rpmforge-extras install git-1.7.11.3-1.el6.rfx.x86_64 
+```
+#####原来的1.7.1版本的git会被覆盖
+```shell
+# git --version
+```

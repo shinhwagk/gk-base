@@ -1,0 +1,30 @@
+1. 如果class属性是私有的,那么getter和setter也是私有的。
+2. 如果class属性是共有的,那么getter和setter也是共有的。
+3 .如果字段是val那么只有setter方法
+4. 如果不需要任何setter和getter方法，那么字段声明为private[this]
+
+###编写一个getter和setter方法
+```scala
+class test {
+  private var privateName = 0;
+  def name = privateName;
+  
+  def name_ = (abc:Int){
+    privateName = privateName + abc;
+  }
+}
+
+object test {
+    def main(args:Array[String]){
+      val a = new test;
+      println(a.name); //0
+      a.name = 111;
+      println(a.name); //111
+    }
+}
+```
+*  getter和setter方法并不是也一个名为getter或setter的方法，而是获得和设置属性的定义(或者说是修改属性和获得属性的编程术语).
+*  在test class中name方法就是privateName属性的getter方法，而name_方法就是privateName的setter方法
+*  如果没有自定义setter和getter方法那么默认的getter和setter方法就是字段的名字
+##scala中的字段(属性)和java是不同的，scala中的属性如果是public的那么scala会把他变成一个私有(private)的属性,同时设置了这个属性的getter和setter方法
+

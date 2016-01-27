@@ -1,0 +1,9 @@
+1. 为images打上tag
+```shell
+# docker tag d3d7510d52ff shinhwagk/monitor:oracle
+```
+ps: d3d7510d52ff为image id
+2. push到docker hub上
+```shell
+# docker push shinhwagk/monitor:oracle
+```

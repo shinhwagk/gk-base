@@ -1,0 +1,54 @@
+```shell
+#!/bin/bash
+x11=""
+x22=""
+for i in `echo -e "a/b/c\na/d/a"`
+ do
+ x1=`echo $i | awk -F'/' '{print $1}'`
+ x2=`echo $i | awk -F'/' '{print $2}'`
+ x3=`echo $i | awk -F'/' '{print $3}'`
+sleep 2
+if [[ $x1 != $x11 ]] ;then
+ id=`date +%s`
+ mkdir $id
+ touch $id/file.idx
+ touch $id/dir.idx
+ touch $id/dir.name
+ echo $x1 > $id/dir.name 
+ sleep 2 
+ id1=`date +%s`
+ mkdir $id/$id1
+ touch $id/$id1/file.idx
+ touch $id/$id1/dir.idx
+ touch $id/$id1/dir.name
+ echo $id1 >> $id/dir.idx
+ echo $x2 > $id/$id1/dir.name
+ sleep 2
+ id2=`date +%s`
+ mkdir $id/$id1/$id2
+ touch $id/$id1/$id2/file.idx
+ touch $id/$id1/$id2/dir.idx
+ touch $id/$id1/$id2/dir.name
+ echo $id2 >> $id/$id1/dir.idx
+ echo $x3 > $id/$id1/$di2//dir.name
+else
+  if [[ $x2 != $x22 ]];then
+    id2=`date +%s`
+    mkdir $id/$id2
+    touch $id/$id2/file.idx
+    touch $id/$id2/dir.idx
+    touch $id/$id2/dir.name
+    echo $x2 > $id/$id2/dir.name
+    sleep 2
+    id3=`date +%s`
+    mkdir $id/$id2/$id3
+    touch $id/$id2/$id3/file.idx
+    touch $id/$id2/$id3/dir.idx
+    touch $id/$id2/$id3/dir.name
+    echo $x3 > $id/$id2/$id3/dir.name
+  fi
+  x22=$x2
+fi
+ x11=$x1
+done
+```

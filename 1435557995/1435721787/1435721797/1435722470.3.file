@@ -1,0 +1,15 @@
+```shell
+/api/brokers/<cli command>/id={broker.id}&<setting>=<value>
+
+curl "http://localhost:7000/api/brokers/add?id=0&cpus=8&mem=43008"
+{"brokers" : [{"id" : "0", "mem" : 43008, "cpus" : 8.0, "heap" : 128, "failover" : {"delay" : "10s", "maxDelay" : "60s"}, "active" : false}]}
+
+curl "http://localhost:7000/api/brokers/start?id=0"
+
+curl "http://localhost:7000/api/brokers/stop?id=0"
+
+curl "http://localhost:7000/api/brokers/status?id=0"
+
+curl "http://localhost:7000/api/brokers/update?id=2&cpus=1"
+
+```

@@ -1,0 +1,4 @@
+value:RUNNING|STOPPED
+desc:
+  设置queues的状态.如果一个queue设置为STOPPED，那么app不能提交到他的 child queues.也就是说如果root queue被STOPPED那么这个cluster不能被提交APP。 
+  对于在运行的app,可以继续完成.

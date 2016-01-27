@@ -1,0 +1,6 @@
+基本类型:char，int，double，float
+short int，long int，short double，long double、signed，unsigned
+short就是把原本的类型长度缩小一半，long是增加一半，前缀的short和long叫做限定符
+signed，unsigned也是限定符，如果不加限定符，那么各个类型，就是机器上的自然长度
+在C中数据类型的长度取决于机器
+doc

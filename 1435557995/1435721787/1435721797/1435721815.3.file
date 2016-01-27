@@ -1,0 +1,56 @@
+###安装jdk1.7 higher
+```shell
+git clone https://github.com/mesos/kafka
+cd kafka
+./gradlew jar
+wget https://archive.apache.org/dist/kafka/0.8.2.1/kafka_2.10-0.8.2.1.tgz
+```
+
+###配置环境
+```
+export MESOS_NATIVE_JAVA_LIBRARY=/xxxx/libmesos.so
+
+export LIBPROCESS_IP=<IP_ACCESSIBLE_FROM_MASTER>
+#不是必须的，作用还不知道，估计是多个MESOS MASTER上面放KAFKA框架
+```
+
+###配置文件:kafka-mesos.properties
+```
+# ./kafka-mesos.sh help scheduler
+Start scheduler 
+Usage: scheduler [options] [config.properties]
+
+Option Description 
+------ ----------- 
+--api Api url. Example: http://master:7000 
+--debug <Boolean> Debug mode. Default - false 
+--framework-name Framework name. Default - kafka 
+--framework-role Framework role. Default - * 
+--framework-timeout Framework timeout (30s, 1m, 1h). 
+                       Default - 30d
+--master Master connection settings. Examples:
+                      - master:5050
+                      - master:5050,master2:5050
+                      - zk://master:2181/mesos
+                      - zk://username:password@master:2181
+                      - zk://master:2181,master2:2181/mesos
+--principal Principal (username) used to register
+                       framework. Default - none
+--secret Secret (password) used to register
+                       framework. Default - none
+--storage Storage for cluster state. Examples:
+                      - file:kafka-mesos.json
+                      - zk:/kafka-mesos
+                     Default - file:kafka-mesos.json
+--user Mesos user to run tasks. Default -
+                       current system user
+--zk Kafka zookeeper.connect. Examples:
+                      - master:2181
+                      - master:2181,master2:2181
+```
+
+
+###运行
+```
+./kafka-mesos.sh scheduler
+```

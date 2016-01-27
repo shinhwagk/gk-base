@@ -1,0 +1,2 @@
+value: org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler
+desc The class to use as the resource scheduler.

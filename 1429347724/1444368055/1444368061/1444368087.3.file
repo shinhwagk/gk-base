@@ -1,0 +1,7 @@
+```scala
+  val cassandra = context.actorOf(
+    ClusterRouterPool(ConsistentHashingPool(0, supervisorStrategy = supervisorStrategy), ClusterRouterPoolSettings(
+      totalInstances = 100, maxInstancesPerNode = 3,
+      allowLocalRoutees = false, useRole = Some("BackendTarget"))).props(Props[BackendTargetCassandra]),
+    name = "workerRouter3")
+```

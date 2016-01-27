@@ -1,0 +1,6 @@
+```scala
+val a = sc.parallelize(List(1,2,3))
+val b = sc.parallelize(List(3,4,5))
+a.subtract(b).collect //res17: Array[Int] = Array(1, 2)
+```
+* 在a中把和b有交集的移除

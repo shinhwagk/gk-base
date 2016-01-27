@@ -1,0 +1,34 @@
+```c
+#include <stdio.h> 
+
+#define IN 1
+#define OUT 0
+
+main()
+{
+  int c,i ,nwhite,nother;
+  int ndigit[10];
+
+  nwhite = nother = 0;
+
+  for( i =0; i<10;++i)
+    ndigit[i] = 0;
+
+  while((c = getchar()) != EOF)
+     if(c>='0' && c <= '9')
+//单引号括起来的是字符，也就是说0的char 转成int是48，所以下面一条语句也可以使用.
+// if(c>=48 && c <= 56)
+      ++ndigit[c-'0'];
+    else if(c == ' ' || c == '\n' || c =='\t')
+      ++nwhite;
+    else
+      ++nother;
+
+  printf("digits = ");
+
+  for(i = 0;i<10;++i)
+    printf(" %d",ndigit[i]);
+
+  printf(", white space = %d,other = %d\n",nwhite,nother);
+}
+```

@@ -1,0 +1,7 @@
+#mvn使用socks5代理:
+##添加以下参数在编译时##
+```shell
+mvn package -DskipTest -Pdist,native -Dtar -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=9700
+```
+-- -DsocksProxyHost=127.0.0.1 
+-- -DsocksProxyPort=9700

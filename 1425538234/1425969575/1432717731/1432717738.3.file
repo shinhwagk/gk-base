@@ -1,0 +1,4 @@
+```scala
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+val jdbcDF = sqlContext.load("jdbc", Map("url" -> "jdbc:oracle:thin:@192.168.20.216:1521/biee","dbtable" -> "ANDR_TOT_VISIT_BASE","user"->"android_back_tot","password"->"android_back_tot")) 
+```

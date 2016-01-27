@@ -1,0 +1,5 @@
+```scala
+val b = new Array[Array[Int]](10)
+scala> for (i <- 0 until b.length) b(i) = new Array[Int]( i + 1 )
+```
+* 定义一个有10个Int类型数组的数组,同时这个10个Int类型的数组,并没有定义他们自己的长度,然后在后面这个for中定义他

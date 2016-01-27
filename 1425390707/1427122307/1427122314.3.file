@@ -1,0 +1,6 @@
+使用yield产生一个新的集合
+```sclaa
+val a = for ( i <- 1 to 10) yield i * 2
+    println(a)
+//Vector(2, 4, 6, 8, 10, 12, 14, 16, 18, 20)
+```

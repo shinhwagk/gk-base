@@ -1,0 +1,14 @@
+#设置5.6字符集
+
+修改/etc/my.cnf配置文件
+```shell
+[mysqld]
+character-set-server=utf8
+
+[mysql]
+default-character-set=utf8
+```
+查看
+```shell
+mysql> show variables like 'character%';
+```

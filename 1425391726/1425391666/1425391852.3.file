@@ -1,0 +1,144 @@
+#安装hadoop 2.6.0集群(CentOS_6.5_64_bit) 3节点(1个namenode/2个datanode)
+##node信息:
+<pre>
+       IP hostname 域名
+1. 192.168.1.174 hd1 namenode
+2. 192.168.1.77 hd2 datanode1
+3. 192.168.1.146 hd3 datanode2
+</pre>
+##1. 安装jdk 1.7.67(all)##
+```
+在/etc/profile中配置JAVA_HOME和PATH
+```
+
+##2. 配置/etc/hosts(all)
+ 
+```shell
+192.168.1.174 namenode
+192.168.1.77 datanode1
+192.168.1.146 datanode2
+```
+注意:在CentOS6中,127.0.0.1的域名默认是lcoalhost,如果你的机器上默认的hostname不是localhost的话，要改成你的hostname
+
+##3. 配置master对slaves的免密登陆(hd1)
+```shell
+[hd1]# ssh-keygen -t rsa
+[hd1]# cat ~/.ssh/id_rsa.pub >> authorized_keys
+[hd1]# chmod 600 ~/.ssh/authorized_keys
+[hd1]# scp ~/.ssh/authorized_keys hd2:~/.ssh/
+[hd1]# scp ~/.ssh/authorized_keys hd3:~/.ssh/
+```
+##4. 配置hadoop配置文件(位置:hadoop-2.6.0/etc/hadoop/)
+####4.1 slaves
+```
+datanode1
+datanode2
+```
+
+####4.2 core-site.xml
+```
+<property>
+    <name>fs.defaultFS</name>
+    <value>hdfs://namenode:8020</value>
+</property>
+```
+
+####4.3 hdfs-site.xml
+```
+<property>
+    <name>dfs.namenode.name.dir</name>
+    <value>/home/hadoop/name</value>
+    <final>true</final>
+</property>
+<property>
+    <name>dfs.datanode.data.dir</name>
+    <value>/home/hadoop/data</value>
+    <final>true</final>
+</property>
+<property>
+    <name>dfs.replication</name>
+    <value>2</value>
+</property>
+```
+
+####4.4 mapred-site.xml
+```
+<configuration>
+<property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+</property>
+</configuration>
+
+```
+###4.5 yarn-site.xml
+```
+<property> 
+   <name>yarn.resourcemanager.hostname</name> 
+   <value>master</value> 
+ </property>    
+<property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+</property>
+```
+##5. 复制hadoop-2.6.0到各个节点
+注意:hadoop文件的位置在每个节点必须一样，这样master在执行启动后会在各个slave节点寻找一样的路径来启动子节点(我是放在/home/hadoop/hadoop-2.6.0)
+
+##6. 初始化namenode(格式化hdfs)(hd1)
+```shell
+[hd1]# HADOOP_HOME/bin/hdfs namenode -format
+>>Exiting with status 0:表示成功<<
+```
+
+##7. 启动集群(hd1)
+```
+[hd1]# HADOOP_HOME/sbin/start-all.sh
+```
+####7.1 查看各个节点是否启动成功
+namenode
+```shell
+[hd1]# jps
+16358 NameNode
+16535 SecondaryNameNode
+16942 Jps
+16683 ResourceManage
+```
+datanode1
+```
+[hd2]# jps
+2253 NodeManager
+2369 Jps
+2152 DataNode
+```
+datanode2
+```
+[hd3]# jps
+
+2253 NodeManager
+2369 Jps
+2152 DataNode
+```
+
+##8. 测试执行wordcount(hd1)
+####8.1 建立hdfs文件夹(数据存放目录/in/wordcount,结果输出目录/out/)
+```shell
+[hd1]# HADOOP_HOME/bin/hadoop fs -mkdir /in/wordcount
+[hd1]# HADOOP_HOME/bin/hadoop fs -mkdir /out/
+```
+####8.2 创建数据文件,并上传到hdfs
+```shell
+[hd1]# echo -e "Hello World , Hello China, Hello Shanghai
+\nI love China \nHow are you" /tmp/in1.txt
+[hd1]# HADOOP_HOME/bin/hadoop fs -put /tmp/in1.txt /in/wordcount
+```
+####8.3 执行wordcount
+```shell
+[hd1]# cd ~/hadoop-2.6.0/share/hadoop/mapreduce/
+[hd1]# HADOOP_HOME/bin/hadoop jar hadoop-mapreduce-examples-2.4.0.jar wordcount /in/wordcount /out/out1
+```
+
+####8.4 查看结果
+```shell
+[hd1]# HADOOP_HOME/bn/hadoop fs -cat /out/out1/part-r-00000
+```

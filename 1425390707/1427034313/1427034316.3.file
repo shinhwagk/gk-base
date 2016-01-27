@@ -1,0 +1,29 @@
+```scala
+import scala.io.Source
+import java.io._
+
+#1
+class RichFile(from:File) {
+ def read = Source.fromFile(from.getPath).mkString
+ def abc = println("abc");
+}
+
+#2
+implicit def file2RichFile(from:File) = new RichFile(from)
+#3
+val contents = new File("z://abc.txt") //abc.txt里面写了 a b c 三个字符串每个字符串一行
+contents.read
+/*
+a
+b
+c
+*/
+contents.abc // abc
+```
+##解释,一共三步骤:
+1. 建立一个RichFile类,这个类主要是为需要转换的类型添加新的功能用的，在这个例子中我为java.io.File类型添加了2个方法read和abc,注意这个类的参数类型是File,虽然这个例子是为File添加新的方法,但是这个参数和转换是没有关系的，所以不要把焦点放在这个上面.
+2. 建立一个隐式转换的方法,这个方法应该这样来理解，注意这里的方法参数类型就和这个例子有关系了。当定义了一个隐式方法，，接下来也就是第三步new的类型,和这个隐式方法的参数类型相同时，你的类型将被转换成这个隐式方法的结果类型.虽然书中说"提供一个隐式转换来将原来的类型转换为新的类型"，但是我理解的是新的类型也就是这个例子中，RichFile的类型只有2个方法，但是新的类型不但有自己原来的方法，还拥有了新类型的方法,所以我觉得应该说成"包含了转换方法结果的类型的方法的心类型".
+3. 第三步收到第二步骤影响，所以看第二步
+
+####PS: 总之当你需要隐式转换一个类型的时候，比如把A转换成B,那么就在使用A之前先写一个以A为参数的隐式转换函数,那么当你new A时就自动调用了隐式转换函数.来达到这个函数执行的目的.
+

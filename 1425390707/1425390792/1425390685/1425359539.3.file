@@ -1,0 +1,8 @@
+```scala
+val b = Array.ofDim[Int](3,4)//三行四列
+```
+#####查看和赋值
+```scala
+b(1)(1) = 99
+print(b(1)(1))
+```

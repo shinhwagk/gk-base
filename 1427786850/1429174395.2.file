@@ -1,0 +1,1 @@
+bin/kafka-run-class.sh kafka.tools.ConsumerOffsetChecker --group pv --zookeeper localhost:2181

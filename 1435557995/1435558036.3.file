@@ -1,0 +1,31 @@
+```shell
+yum install -y tar wget
+
+wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+
+cat > /etc/yum.repos.d/wandisco-svn.repo << EOF
+[WANdiscoSVN]
+name=WANdisco SVN Repo 1.9
+enabled=1
+baseurl=http://opensource.wandisco.com/centos/7/svn-1.9/RPMS/$basearch/
+gpgcheck=1
+gpgkey=http://opensource.wandisco.com/RPM-GPG-KEY-WANdisco
+EOF
+
+yum groupinstall -y "Development Tools"
+
+yum install -y apache-maven java-1.7.0-openjdk-devel
+
+yum install -y python-devel zlib-devel libcurl-devel openssl-devel cyrus-sasl-devel cyrus-sasl-md5 apr-devel subversion-devel apr-util-devel
+
+cd mesos 
+mkdir build 
+cd build
+../configure
+make
+
+
+./bin/mesos-master.sh --ip=127.0.0.1 --work_dir=/var/lib/mesos
+
+./bin/mesos-slave.sh --master=127.0.0.1:5050
+```

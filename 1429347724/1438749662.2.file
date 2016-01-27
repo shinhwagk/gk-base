@@ -1,0 +1,5 @@
+preStart
+postStop
+preRestart
+postRestart
+4个顺序

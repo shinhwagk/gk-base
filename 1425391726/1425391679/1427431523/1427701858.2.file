@@ -1,0 +1,6 @@
+Maximum number of applications in the system which can be concurrently active both running and pending. 
+Limits on each queue are directly proportional to their queue capacities and user limits.
+This is a hard limit and any applications submitted when this limit is reached will be rejected.
+Default is 10000. 
+This can be set for all queues with yarn.scheduler.capacity.maximum-applications and can also be overridden on a per queue basis by setting yarn.scheduler.capacity.<queue-path>.maximum-applications. 
+Integer value expected.

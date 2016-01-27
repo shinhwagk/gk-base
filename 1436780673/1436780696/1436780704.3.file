@@ -1,0 +1,11 @@
+```c
+#include <stdio.h>
+
+void main(){
+  double x;
+  printf("请输入数字:\n");
+  scanf("%lf",&x);
+  printf("%lf\n",x);
+}
+
+```

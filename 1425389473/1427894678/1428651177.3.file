@@ -1,0 +1,12 @@
+```shell
+case "abc" in 
+ L*) 
+   echo a;;
+ abc) 
+   echo bb; 
+esac
+```
+1. 右括号左边就是关键字
+2. 用关键字去匹配可以用*
+
+

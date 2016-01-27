@@ -1,0 +1,2 @@
+Default 1	
+Desc Number of cores to use for the driver process, only in cluster mode.

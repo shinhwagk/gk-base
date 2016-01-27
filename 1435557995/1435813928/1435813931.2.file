@@ -1,0 +1,4 @@
+通过zookeeper保持高可用
+zk://host1:port1,host2:port2,.../path
+zk://username:password@host1:port1,host2:port2,.../path
+file:///path/to/file (where file contains one of the above)

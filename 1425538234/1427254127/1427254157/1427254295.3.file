@@ -1,0 +1,10 @@
+```scala
+val conf = new SparkConf().setMaster("local[2]").setAppName("CountingSheep").set("spark.executor.memory", "1g")
+```
+
+```scala
+spark.master spark://5.6.7.8:7077
+spark.executor.memory 512m
+spark.eventLog.enabled true
+spark.serializer org.apache.spark.serializer.KryoSerializer
+```

@@ -1,0 +1,32 @@
+```scala
+/**
+ * Created by goku on 2015/7/29.
+ */
+object test8 {
+  def main(args: Array[String]) {
+    val a = (1,"a")
+    a match {
+#可以
+      case b @ a =>
+        println(b._2)
+        println("xxx")
+
+      case _ =>
+        println("vvv")
+    }
+
+#可以
+    if(1==1)
+      println("x")
+      println("x")
+
+    println("vv")
+
+#不可以i不能被识别到
+    for(i <- 1 to 10)
+      println("x")
+      println(i)
+  }
+}
+
+```

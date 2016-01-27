@@ -1,0 +1,16 @@
+```scala
+  val collection = sc.parallelize(List(1, 2, 100, 11, 12, 13, 55, 66))
+  println(collection.reduce(f))
+
+  def f(a: Int, b: Int): Int = {
+    val mm = Random.nextInt(100000)
+    println("elem", a, mm)
+    println("elem", b, mm)
+    val result = a + b
+    println("result", result, mm)
+    result
+  }
+```
+####我这里使用了一个版本号在方法中，来观察执行的过程
+###这里的例子是把rdd中的elem两两相加，得出的结果成为新的elem,再两两相加，最后得出一个所有elem相加的值，这个操作是并行的.
+

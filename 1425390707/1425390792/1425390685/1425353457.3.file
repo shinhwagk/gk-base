@@ -1,0 +1,31 @@
+#####通过下标来获取元素值
+```scala
+ val b = Array(1,2,3);
+ for (i<- 0 until b.length) println(i + ": " + b(i))
+```
+#####不使用下标
+```scala
+ val b = Array(1,2,3);
+ for (b_val <- b) println(b_val)
+```
+* util是RichInt类的方法，返回小于但不等于的数字.`
+
+
+####unitl的使用
+```scala
+for(i <- 1 until 10) println(i);// 1.2.3.4...
+```
+* 1 unitl 5 实际是调用 1.unitl(5) 方法.
+
+#####每N个元素一跳
+```scala
+for(i <- 1 until (10,2)) println(i); // 返回1,3,5...
+```
+#####从数组尾端开始遍历
+```scala
+for(i <- (1 until 10).reverse) println(i); //9,8,7...
+```
+
+
+
+

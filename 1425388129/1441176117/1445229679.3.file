@@ -1,0 +1,23 @@
+#Add node to cluster(dse-cassandra-2.1.2)
+
+####1. (new node)设置cassamdra.yaml，并且根据snitch设置cassandra-topology.properties 或 cassandra-rackdc.properties文件
+####2. 设置cassandra.yaml参数
+- auto_bootstrap为true，默认也是为true,并且配置文件中是没有改参数的
+- cluster_name为cluster统一命名
+- listen_address/broadcast_address
+- endpoint_snitch
+- num_tokens :如果cluster中的机器硬件配置多点的tokens给计算能力强的机器
+- seed_provider
+note: seed node不能bootstrap.确保new node不是seed list中的机器
+
+####3. 确保cluster中所有节点都是up的并且没有其他状态
+```shell
+# nodetool status
+```
+####4. 在new node加入到cluster后，运行以下命令,在cluster中每个节点来已经属于他们自己的key,注意这个操作需要一个节点完成后进行下一个节点,并且这个操作可以在cluster负载低的时候来做。
+```shell
+# nodetool cleanup
+```
+注意:一致性问题可能发生在大于一个new node同时加入cluster,可以参考[CASSANDRA-2434](https://issues.apache.org/jira/browse/CASSANDRA-2434)和[CASSANDRA-7069](https://issues.apache.org/jira/browse/CASSANDRA-7069)
+
+[本文官方来源](http://www.datastax.com/documentation/cassandra/2.1/cassandra/operations/ops_add_node_to_cluster_t.html)

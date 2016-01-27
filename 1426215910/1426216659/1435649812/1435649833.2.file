@@ -1,0 +1,5 @@
+docker run -d -p 5000:5000 registry:2
+docker pull centos
+docker tag centos localhost:5000/myfirstimage
+docker push localhost:5000/myfirstimage
+docker pull localhost:5000/myfirstimage

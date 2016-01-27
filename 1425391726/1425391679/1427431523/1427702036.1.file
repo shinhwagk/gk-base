@@ -1,0 +1,2 @@
+yarn.scheduler.capacity.maximum-am-resource-percent
+yarn.scheduler.capacity.<queue-path>.maximum-am-resource-percent

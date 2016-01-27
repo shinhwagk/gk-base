@@ -1,0 +1,12 @@
+```scala
+val inFile = sc.textFile("hdfs://hadoop1/logs/atest.log")
+inFile.take(2)
+```
+输出
+```scala
+res2: Array[String] = Array(111.163.30.88 - - [03/Jan/2015:17:31:49 +0800] "GET /ota/checkupdate?hw=GFIVEA770&hwv=P1&swv=GFIVE_A770_V007_20130917&serialno=869362010083883&bdt=201309170956&cust=GFIVE&kernel=4.2.1&maf=alps&board=wt93045&lang=zh&net=wifi&oprator=46000&smsc=+8613800220500&aid=354237b913be93c9&seri=0123456789ABCDEF HTTP/1.1" 200 36 "-" "-", 60.211.227.2 - - [03/Jan/2015:17:31:49 +0800] "GET /ota/checkupdate?hw=T9508&hwv=P1&swv=SW_S97512B1_V010_M20_BIRD_COCLOCK_EMC&serialno=860219023050094&bdt=201312141323&cust=Bird&kernel=4.2.2&maf=BIRD&board=wt97512&lang=zh&net=wifi&oprator=null&smsc=11111111111&aid=d92ac3ce79583bf6&seri=0123456789ABCDEF&imsi=460077250783397 HTTP/1.1" 200 36 "-" "-")
+
+```
+以数组形式生成
+
+

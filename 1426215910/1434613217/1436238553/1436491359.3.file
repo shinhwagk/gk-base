@@ -1,0 +1,11 @@
+```shell
+[root@cloud03 tmp]# docker run --restart=always -it centos /bin/bash
+[root@3716a9388f3b /]# echo a >a
+[root@3716a9388f3b /]# exit
+exit
+[root@cloud03 tmp]# docker ps -a
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+3716a9388f3b centos "/bin/bash" 7 seconds ago Up 1 seconds backstabbing_turing 
+[root@3716a9388f3b /]# cat a
+a
+```

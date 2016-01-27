@@ -1,0 +1,10 @@
+###绑定变量
+```java
+    val sql2 = "insert into andrstore.tbllog (tid,created) values(?,?)"
+    val prepared: PreparedStatement = session.prepare(sql2)
+    val bound_stmt: BoundStatement = prepared.bind()
+    bound_stmt.setLong("TID",1001L)
+    bound_stmt.setDate("created",new Date)
+    session.execute(bound_stmt)
+
+```

@@ -1,0 +1,10 @@
+```shell
+cd /tmp
+yum install -y build-essential autoconf libtool openssl-devel gcc git yum-priorities wget make
+wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.i386.rpm
+rpm -i http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.i386.rpm
+git clone https://github.com/madeye/shadowsocks-libev.git
+cd shadowsocks-libev
+./configure && make && make install
+nohup /usr/local/bin/ss-server -s 0.0.0.0 -p 444 -k admin888 -m aes-256-cfb &
+```

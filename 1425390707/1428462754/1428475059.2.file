@@ -1,0 +1,3 @@
+val a = Source.fromURL("http://www.baidu.com","UTF-8")
+val a = Source.fromString("aaaa,bbbb")
+val a = 

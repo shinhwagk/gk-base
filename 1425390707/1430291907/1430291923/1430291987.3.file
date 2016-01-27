@@ -1,0 +1,12 @@
+```scala
+object test {
+    def main(args: Array[String]) { 
+      val ch = '1'
+
+      ch match{
+        case '1' => println("1")
+        case _ => println("abc")
+      }
+    }
+}
+```

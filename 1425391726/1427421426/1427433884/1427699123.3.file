@@ -1,0 +1,66 @@
+#1 什么是queue
+  简单说，就是把整个yarn集群的可用资源，自定义划成多个queues(队列)，可以把集群的资源自定义分配给每个queues。
+###概念:
+ yarn有一个默认的queue，他就是root，所有的自定义queue都必须属于root的子节点，接下来你也可以自定义你自己的子节点的子节点.有一点要注意:每个level的层面，所有的queue加起来必须100%
+
+
+#2 下面配置2个queue.演示
+
+###1. 设置RM使用CapacityScheduler
+```yarn
+conf/yarn-site.xml
+  name: yarn.resourcemanager.scheduler.class
+  value: org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler
+```
+###2. 这里配置两个queue，a和b
+```yarn
+conf/capacity-scheduler.xml
+  name: yarn.scheduler.capacity.root.queues
+  value: a,b
+
+如果要为queue a设置子queue ，子队列 c和d 那么:
+conf/capacity-scheduler.xml
+  name: yarn.scheduler.capacity.root.a.queues
+  value: c.d
+
+```
+###3. 配置队列资源份额
+```yarn
+conf/capacity-scheduler.xml
+  yarn.scheduler.capacity.root.a.capacity
+  value: 50
+conf/capacity-scheduler.xml
+  yarn.scheduler.capacity.root.b.capacity
+  value: 50
+conf/capacity-scheduler.xml
+  yarn.scheduler.capacity.root.a.state
+  value: RUNNING
+conf/capacity-scheduler.xml
+  yarn.scheduler.capacity.root.b.state
+  value: RUNNING
+```
+###4. 启动配置
+```yarn
+$HADOOP_YARN_HOME/bin/yarn rmadmin -refreshQueues
+```
+
+#3 queue用户访问控制
+###概念:
+  1. 我们可以控制哪些Linux用户或组可以提交并管理哪些queue,注意:在yarn中，所有的queue都继承root queue，所以如果queue root设置为任何用户都可以访问，那么他的子queue，就算设置了用户限制，也限制不了用户提交应用,也就是说queue root的设置是避免不了的
+  2. 注意:queue 不能动态减少，但是可以动态增加
+###1. 配置参数
+```yarn
+conf/capacity-scheduler.xml
+  name: yarn.scheduler.capacity.root.acl_submit_applications
+  value: abc
+conf/capacity-scheduler.xml
+  name: yarn.scheduler.capacity.root.a.acl_submit_applications
+  value: ccc
+conf/capacity-scheduler.xml
+  name: yarn.scheduler.capacity.root.b.acl_submit_applications
+  value: cba
+```
+* ccc用户只能提交app 到 queue a
+* cba用户只能提交app 到 queue b
+* abc用户任何queue 都可以提交
+

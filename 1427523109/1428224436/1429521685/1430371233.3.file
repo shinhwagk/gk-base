@@ -1,0 +1,21 @@
+$$
+Ax^2+Bx+C=0 \\\
+转换成\\\
+x=\frac{-b \pm \sqrt{B^2-4AC}}{2A}
+$$
+
+####如何转换的，如下:
+$$
+Ax^2+Bx + C = 0 \\\转换\\\
+Ax^2+Bx = -C \\\转换\\\
+x^2+\frac{B}{A}x = -\frac{C}{A}\\\
+需要把这个方程转换成a^2+2ab+b^2的形式，以便于最终转换成(a+b)^2的形式\\\
+在这里a相当于x 于是等于x^2+2xb+b^2\\\
+也就是2b=\frac{B}{A},那么B=\frac{B}{2A}\\\
+将原来的方程左右两边都加上(\frac{B}{2A})^2 = x^2+\frac{B}{A}x +(\frac{B}{2A})^2 = -\frac{C}{A}+(\frac{B}{2A})^2 \\\变成\\\
+(x+\frac{B}{2A})^2=-\frac{C}{A}+(\frac{B}{2A})^2 \\\变成\\\
+(x+\frac{B}{2A})^2=-\frac{-4AC +B^2}{4A^2} \\\变成\\\
+x+\frac{B}{2A}=\frac{\pm\sqrt{-4AC +B^2}}{2A}\\\变成\\\
+x=\frac{\pm\sqrt{-4AC +B^2}}{2A}-\frac{B}{2A}\\\最后\\\
+x=\frac{-B\pm\sqrt{-4AC +B^2}}{2A}
+$$\

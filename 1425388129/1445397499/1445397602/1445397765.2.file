@@ -1,0 +1,6 @@
+$ nodetool status
+Datacenter: datacenter1
+
+CREATE KEYSPACE NTSkeyspace WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };
+
+#通过nodetool status可以查看datacenter的名字

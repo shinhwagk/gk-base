@@ -1,0 +1,15 @@
+```scala
+object test {
+
+    def main(args: Array[String]) {
+      val ch:Int = '1'
+
+      ch match{
+        case '2' => println("1")
+        case _ if Character.isDigit(ch) => println("abc")
+        case _ => println("abchaha")
+      }
+    }
+}
+```
+Character.isDigit(ch) 这个字符是否是数字字符 即'0'~'9'

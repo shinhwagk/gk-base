@@ -1,0 +1,12 @@
+```shell
+#列出所有可以安装的GroupList
+ yum grouplist
+#查看
+ yum groupinfo <groupname>
+#安装
+ yum groupinstall <groupname>
+#更新
+ yum groupupdate <groupname>
+#移除
+ yum groupremove <groupname>
+```

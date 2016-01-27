@@ -1,0 +1,3 @@
+CREATE ( KEYSPACE | SCHEMA ) IF NOT EXISTS keyspace_name 
+WITH REPLICATION = map
+AND DURABLE_WRITES = ( true | false )

@@ -1,0 +1,21 @@
+```scala
+
+object Hello extends App {
+  val a = new test1
+  println(a.a)
+  println(a.b)
+}
+
+trait Logger{
+  val a = 1
+}
+
+class test1 extends Logger{
+  val b = 2
+}
+
+```
+###解释:
+* 特质中可以加入具体字段，也可以加入抽象字段
+* 继承这个特质的类，他是直接获得特质的具体字段，如果是具体的话.
+* jvm中一个类只能扩展一个超类，所以特质的字段不是以继承的方式，然是直接加入到类中。

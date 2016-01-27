@@ -1,0 +1,21 @@
+####更新map中的值
+```scala
+import scala.collection.mutable.Map
+val b = Map(1->"abc",2->"c")
+b(1) = "ccc"
+b(1) //ccc
+```
+
+#####添加元素到map中
+```scala
+import scala.collection.mutable.Map
+val b = Map(1->"abc",2->"c")
+b +=(3->"c")
+```
+
+#####移除某个元素
+```scala
+import scala.collection.mutable.Map
+val b = Map(1->"abc",2->"c")
+ b-= 1
+```

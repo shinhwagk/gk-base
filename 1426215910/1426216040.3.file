@@ -1,0 +1,9 @@
+###2015/01/29 16:52:10 Error response from daemon: Cannot start container 743b400bbce3af36f5a448bee79e472baecc12be1d9243bdbfdd25e6318b9d70:  (exit status 1)
+ԭ��:
+```shell
+  docker run -p 5000:5000 registry
+```
+����:
+```shell
+systemctl restart docker
+```

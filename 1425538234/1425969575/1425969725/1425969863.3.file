@@ -1,0 +1,7 @@
+```scala
+val a = sc.parallelize(List(1,2,3))
+val b = sc.parallelize(List(3,4,5))
+a.union(b).collect //res12: Array[Int] = Array(1, 2, 3, 3, 4, 5) 
+b.union(a).collect //res13: Array[Int] = Array(3, 4, 5, 1, 2, 3)
+```
+使用时可以注意先后顺序

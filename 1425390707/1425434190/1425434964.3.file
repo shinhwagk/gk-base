@@ -1,0 +1,4 @@
+```shell
+# scalac test.scala
+# javap -private {class_name|object_name} //test.scala 中定义的类名或object name
+```

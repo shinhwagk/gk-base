@@ -1,0 +1,5 @@
+--切换分支
+git checkout 分支名字
+
+查看分支
+git branch

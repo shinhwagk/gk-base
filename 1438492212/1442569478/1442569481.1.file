@@ -1,0 +1,11 @@
+  Class.forName("oracle.jdbc.driver.OracleDriver");
+  val url = "jdbc:oracle:thin:@218.202.225.211:1521/sh11";
+  val props = new Properties();
+  props.put("oracle.jdbc.ReadTimeout", "6000");
+  props.put("user", "andrstore");
+  props.put("password", "andrstore");
+  val conn: java.sql.Connection = DriverManager.getConnection(url, props)
+  val stmt: java.sql.PreparedStatement = conn.prepareStatement("select * from tbllog where tid >= :x and tid <= :x")
+  stmt.setInt(1, 0);
+  stmt.setInt(2, 1222);
+  val rs: java.sql.ResultSet = stmt.executeQuery();

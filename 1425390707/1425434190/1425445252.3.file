@@ -1,0 +1,18 @@
+```scala
+object test {
+    def main(args:Array[String]){
+      val a = new test;
+      val b = new test;
+      a.isLess(b);
+       
+    }
+}
+
+class test {
+  private var value = 111;
+ //private[this] var value = 111;
+  def isLess(other:test)= println(other.value);
+}
+```
+1. 这个例子中a对象的方法可以访问b对象的属性，也就是other.value
+2.

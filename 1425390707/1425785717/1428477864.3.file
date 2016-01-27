@@ -1,0 +1,19 @@
+###当作接口使用的特质,同时可以需要多个特质
+```scala
+trait Logger {
+  //特质中未被实现的方法默认就是抽象的.所以不用加上abstract关键字
+  def log(msg: String)
+
+}
+
+class ConsoleLogger extends Logger { //使用extentds ,而不是implements 
+  def log(msg: String) { println(msg) } //不需要协商override
+}
+
+//多个特质剋使用with
+ class ConsoleLogger2 extends Logger with Cloneable with Serializable
+//scala类只能有一个超类，但可以有任意数量的特质
+//如何来解读这段代码,Logger with Cloneable with Serializable为一个整体，然后被CnsleLogger2来继承
+```
+
+###

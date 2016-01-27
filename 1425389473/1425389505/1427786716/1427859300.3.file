@@ -1,0 +1,15 @@
+###设置nginx log
+```nginx
+ server {
+        listen 8080;
+        resolver 8.8.8.8;
+        location /{
+            proxy_pass http://$http_host$request_uri;
+            #allow 127.0.0.1;
+            #deny all;
+        }
+    }
+
+```
+复制代码
+注意：必须加上resolver 8.8.8.8;给nginx指定dns，否则会报告“nginx 502 bad gateway”错误，也可以通过allow和deny来设置只有指定IP能够访问，修改后重启nginx，在QQ登陆的时候设置代理服务器类型是HTTP，端口8080即可登陆

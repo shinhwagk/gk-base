@@ -1,0 +1,12 @@
+####建议放大浏览器来看
+$$
+\begin{matrix}
+1. & \sigma^2 = \frac{\sum\_{i=1}^N (x\_i - \mu)^2}{N} \\\
+2. & \frac{\sum\_{i=1}^N (x\_i^2 - 2x\_i\mu + \mu^2)}{N} \\\
+3. & \frac{\sum\_{i=1}^N x\_i^2 - 2\mu \sum\_{i=1}^N x\_i + \mu^2 \sum\_{i=1}^N1}{N} \\\
+4. & \frac{\sum\_{i=1}^N x\_i^2 - 2\mu \sum\_{i=1}^N x\_i + \mu^2 }{N} \\\
+5. & \frac{\sum\_{i=1}^N x\_i^2}{N} - 2 \mu^2 + \mu^2 \\\
+6. & \frac{\sum\_{i=1}^N x\_i^2}{N} - \mu^2 \\\
+7. & \frac{\sum\_{i=1}^N x\_i^2}{N} - \frac{[\sum\_{i=1}^N x\_i]^2}{N^2}
+\end{matrix}
+$$

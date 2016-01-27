@@ -1,0 +1,28 @@
+###shell,增加jdbc jar包到路径中
+```shell
+SPARK_CLASSPATH=../lib/ojdbc7.jar spark-shell --master spark://192.168.20.216:7077 --executor-memory 10g
+
+```
+
+###spark-shell
+```scala
+import java.sql.{Connection, DriverManager, ResultSet} 
+import org.apache.spark.rdd.JdbcRDD
+classOf[oracle.jdbc.driver.OracleDriver]
+//Class.forName("oracle.jdbc.driver.OracleDriver").newInstance
+val username = "ANDROID_BACK_TOT"
+val password = "android_back_tot"
+val connString = "jdbc:oracle:thin:@192.168.20.216:1521/biee" 
+case class ANDR_TOT_VIEW_BASE(val tid:Int,val IMSI:String,val LANG:String,val CONNECTIONMODE:String,val COUNTRY:String,val PROVINCE:String,val BRAND:String,val MODEL:String,val Provider:String,val SCREENSIZE:String);
+ 
+val jdbcrdd = new JdbcRDD(sc,()=>DriverManager.getConnection(connString,username,password),"select * from ANDR_TOT_VISIT_BASE where TID >=? and TID<=? ",1,615361041,8,r => {ANDR_TOT_VIEW_BASE(r.getInt(1),r.getString(2),r.getString(3),r.getString(4),r.getString(5),r.getString(6),r.getString(7),r.getString(8),r.getString(9),r.getString(10))})
+//615361041
+jdbcrdd.count
+
+import sqlContext.implicits._
+val b = jdbcrdd.toDF
+b.registerTempTable("ANDR_TOT_VIEW_BASE")
+b.cache
+val teenagers = sqlContext.sql("SELECT COUNTRY,count(*) FROM ANDR_TOT_VIEW_BASE group by COUNTRY")
+teenagers.map(t => "a: " + t(0)).collect().foreach(println)
+```

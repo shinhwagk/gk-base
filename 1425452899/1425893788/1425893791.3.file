@@ -1,0 +1,20 @@
+1. 生成sbt 插件定义文件(全局),也可以用1.1生成局部的
+```sbt
+# ~/.sbt/0.13/plugins/plugins.sbt 
+```
+1.1 生成sbt 插件定义文件(局部)
+```sbt
+PROJECT_DIR/project/plugins.sbt
+```
+
+2. 写入插件定义文件
+```sbt
+addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "3.0.0")
+```
+
+3. 执行sbt
+```sbt
+# sbt
+sbt> eclipse
+```
+默认sbt命令行是没有eclipse命令的，但是加入了指定插件就可以执行eclipse命令

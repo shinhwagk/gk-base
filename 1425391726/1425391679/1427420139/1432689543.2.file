@@ -1,0 +1,3 @@
+value:8192
+desc:Amount of physical memory, in MB, that can be allocated for containers.
+gk:节点单独配置，集群可以使用这个节点的内存数量

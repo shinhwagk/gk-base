@@ -1,0 +1,55 @@
+###1. 安装mysql
+```shell
+# yum install -y mysql-server
+```
+###2. 配置mysql字符集
+```shell
+修改/etc/my.cnf配置文件
+[mysqld]
+character-set-server=utf8
+[mysql]
+default-character-set=utf8
+```
+
+###3. 创建mysql用户和数据库
+```shell
+# mysql
+mysql> CREATE USER 'hive' IDENTIFIED BY 'mysql';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'hive'@'%' WITH GRANT OPTION;
+mysql> flush privileges;
+
+# mysql -uhive -p -h x.x.x.x
+mysql> create database hive;
+mysql>alter database hive character set latin1;
+```
+hive存储元数据到mysql不支持utf8
+
+###4. 增加hive-site.xml配置文件
+```
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+  <property>
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:mysql://192.168.12.42:3306/hive?characterEncoding=UTF8</value>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionDriverName</name>
+    <value>com.mysql.jdbc.Driver</value>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionUserName</name>
+    <value>hive</value>
+  </property>
+  <property>
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>mysql</value>
+  </property>
+</configuration>
+```
+###5. 添加mysql驱动到,$HIVE_HOME/lib下
+```shell
+wget http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar
+```
+
+

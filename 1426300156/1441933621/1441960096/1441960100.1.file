@@ -1,0 +1,2 @@
+1. jmap -dump:live,file=a.map 
+2. jhat a.map 

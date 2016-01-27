@@ -1,0 +1,3 @@
+f(x) = x^2 domain={x∈R}，R是实数
+f(x) = 1/(x^2) domain={x∈R:x不等于0}
+f(x) = 平方根下(x-3) {x∈R:x>=3}

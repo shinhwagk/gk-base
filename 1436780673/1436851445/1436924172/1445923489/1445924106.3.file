@@ -1,0 +1,25 @@
+```c
+#include <stdio.h>
+
+main()
+{
+  int fahr;
+
+  for(fahr = 0; fahr <=300;fahr = fahr +20)
+    printf("%3d %6.1f\n",fahr,(5.0/9.0)*(fahr -32));
+
+}
+
+```
+
+for循环有3个部分:
+
+ * 第一部分:fahr =0,这个部分在进入循环前执行一次。
+ * 第二部分:fahr<=300，这个部分是循环控制，结果true，则执行
+ * 第三部分:fahr = fahr + 20,增加20 在计算一次是否为true，则执行
+
+执行的循序是:
+
+ 1. fahr = 0 fahr <=300 查看是否为true
+ 2. fahr = fahr + 20 fahr <=300 插看是否为true
+  ...

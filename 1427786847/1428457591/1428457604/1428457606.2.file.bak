@@ -1,0 +1,2 @@
+$TYPESAFE_HOME/<app_home>/activator.bat h2-browser
+$TYPESAFE_HOME/<app_home>/activator h2-browser

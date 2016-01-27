@@ -1,0 +1,4 @@
+val a = "a b c"
+val b = a.split(" ")
+println(b)
+#b: Array[String] = Array(a, b, c)

@@ -1,0 +1,22 @@
+```scala
+
+object Hello extends App {
+  val a = new test1
+  a.test
+}
+
+trait Logger{
+  def log(msg: String)
+  def info(msg: String){ log("INFO: " + msg)}
+  def warn(msg: String){ log("WARN: " + msg)}
+  def severe(msg: String){ log("SEVERE: " + msg)}
+}
+
+class test1 extends Logger{
+  def test: Unit = {
+    severe("xxxx")
+  }
+   override def log(msg: String){ println(msg) }
+}
+
+```

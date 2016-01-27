@@ -1,0 +1,44 @@
+```scala
+import akka.actor.{Actor, Props, ActorSystem}
+import akka.actor.Actor.Receive
+import akka.pattern.{ ask, pipe }
+import akka.util.Timeout
+import scala.concurrent.duration._
+/**
+ * Created by goku on 2015/7/29.
+ */
+object test9 {
+  implicit val askTimeout = Timeout(5 seconds)
+  def main(args: Array[String]) {
+    val system = ActorSystem("FaultToleranceSample")
+    import system.dispatcher
+    val a = system.actorOf(Props[a], name = "worker1")
+    val b = system.actorOf(Props[b], name = "b")
+    //发送消息后，等待返回
+    a ? GetCurrentCount map {case "aaa" => "b"} pipeTo b
+    //a.ask(GetCurrentCount)(5 seconds) map {case "aaa" => "b"} pipeTo b
+  }
+}
+case object GetCurrentCount
+class a extends Actor {
+  override def receive: Receive = {
+    case GetCurrentCount =>{
+      Thread.sleep(2000)
+      sender() ! "aaa"
+    }
+    case _ =>
+      println("x")
+
+  }
+}
+
+
+class b extends Actor{
+  override def receive: Actor.Receive = {
+    case "b" =>{
+      println("ok")
+    }
+  }
+}
+
+```

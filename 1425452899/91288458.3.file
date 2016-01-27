@@ -1,0 +1,6 @@
+```sbt
+[repositories]
+  local
+  my-proxy: http://43.224.35.142:8081/nexus/content/groups/public/
+  my-proxy2: http://43.224.35.142:8081/nexus/content/groups/public/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+```

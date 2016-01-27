@@ -1,0 +1,7 @@
+```scala
+scala> ArrayBuffer(99,1,2,3).toString
+res97: String = ArrayBuffer(99, 1, 2, 3)
+
+scala> Array(99,1,2,3).toString
+res98: String = [I@77355125
+```

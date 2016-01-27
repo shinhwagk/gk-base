@@ -1,0 +1,16 @@
+```scala
+class test (val b:Int,val a:Int) {}
+
+object test{
+  def apply(a:Int)={
+    new test(1,a)
+  }
+
+  def main(args: Array[String]) {
+    val a = test(2)
+    println(a.b)
+    println(a.a)
+  }
+}
+```
+

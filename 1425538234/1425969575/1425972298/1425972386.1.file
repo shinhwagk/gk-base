@@ -1,0 +1,2 @@
+sc.textFile("xxx")
+sc.textFile(logFile, 2)#指定分区数

@@ -1,0 +1,8 @@
+```c
+int 整型
+float 浮点数
+char 字符--一个字符
+long 长整型
+short 短整型
+double 双精度浮点型
+```

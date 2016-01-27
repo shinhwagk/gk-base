@@ -1,0 +1,8 @@
+```shell
+[root@cloud03 tmp]# docker run -it --restart=always -e abc=ddd centos /bin/bash
+[root@25f649521342 /]# exit
+exit
+[root@cloud03 tmp]# docker exec -it 25f649521342 /bin/bash
+[root@25f649521342 /]# echo $abc
+ddd
+```

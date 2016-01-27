@@ -1,0 +1,23 @@
+定义数组(定长数组)
+
+```scala
+ val greetStrings = new Array[String](3)
+ greetStrings(0) = "Hello"
+ greetStrings(1) = ", "
+ greetStrings(2) = "wordln!\n"
+ val numNames = Array("zero","one","two")
+ val numNames = Array.apply("zero","one","two")
+```
+循环数组
+
+```scala
+ for( i <- 0 to 2)
+   print(greetString(i))
+```
+显示的定义数组的类型
+
+```scala
+ val greetStrings: Array[String] = new Array[String](3)
+```
+* 对数组使用val，表示greetStrings这个数组的类型不能改变，但是数组中的元素的值是可以变化的。
+

@@ -1,0 +1,2 @@
+内存dump到磁盘的位置
+可以在cli中用save手动刷,或shutdown save

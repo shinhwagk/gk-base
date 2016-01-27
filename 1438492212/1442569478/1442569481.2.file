@@ -1,0 +1,1 @@
+stmt.setInt一定不能选择错误的类型，不然stmt.executeQuery()会卡住或报错

@@ -1,0 +1,18 @@
+##unsigned signed 不带限定符变量的区别
+- 假设char是1个字节，那么一般的理解他的范围就是-128~127,但是如果加了unsigned限定符的话，那么范围就是0~255
+- 如果不带限定符，那么类型是否带符号，取决于机器
+
+###例子
+```c
+#include <stdio.h>
+
+void main(){
+  char a;
+  unsigned char b;
+  a = 200;
+  b = 200;
+  printf("%d\n",a);//-56
+  printf("%d\n",b);//200
+}
+
+```

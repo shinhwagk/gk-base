@@ -1,0 +1,24 @@
+* 辅助构造器关键字:this
+* 每一个辅助构造器，都必须以一个先前定义的辅助构造器或主构造器的调用开始
+
+```scala
+class afd {
+  def this(a:String){
+    this()
+    this.ccc=a;
+  }
+  def this(a:Int) {
+    this("a")
+    this.abc = a;
+  }
+ var abc = 0
+ var ccc ="a"
+}
+
+object cba {
+  def main(args:Array[String]):Unit={
+     new afd(1)
+  }
+}
+```
+* 在这个例子中第一个辅助构造器中必须加入主构造器，第二个辅助构造器中可以选择加入第一个辅助构造器或者主构造器，在这里我选择的是主构造器.说明白一定要调用到主构造器为止.

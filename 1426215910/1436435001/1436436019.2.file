@@ -1,0 +1,4 @@
+CMD echo hello world
+docker run centos-cmd
+docker run centos-cmd echo hello edwardsb
+CMD可以写多条，但是只会生效一条，如果有多条最后一条生效

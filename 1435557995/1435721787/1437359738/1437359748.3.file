@@ -1,0 +1,19 @@
+###1.编译spark
+```shell
+./make-distribution.sh --tgz
+```
+
+###2.上传到hdfs
+###3.配置spark-env.sh配置文件,
+* 增加SPARK_EXECUTOR_URI
+```shell
+export SPARK_EXECUTOR_URI=hdfs:///spark-1.4.1-bin-2.2.0.tgz
+```
+* 增加MESOS_NATIVE_JAVA_LIBRARY
+
+
+###4.添加mesos salve 参数
+```shell
+./mesos-slave.sh ... --hadoop_home=/opt/hadoop-2.7.1 
+如果不添加hadoop_home他就不知道hadoop -fs 命令位置
+```

@@ -1,0 +1,9 @@
+#define LOWER 0
+* long常量 100l或100L
+* 无符号常量u或U结尾
+* ul或UL表示unsigned long类型
+* f或F float类型
+* double没有后缀
+* L或l表示long double
+* 8进制前缀0
+* 16进制 0X或0x

@@ -1,0 +1,10 @@
+SELECT (currtime-lasttime)*24*60 tt,
+                                 count(*) user_number
+FROM
+  (SELECT trunc(createdate,'mi') currTime,
+          trunc(lag(createdate)over(partition BY serialno
+                                    ORDER BY createdate),'mi') lastTime
+   FROM TBLDOWNUPDATELOG
+   WHERE rownum<1000000)
+WHERE lastTime IS NOT NULL
+GROUP BY (currtime-lasttime)*24*60 order by 2

@@ -1,0 +1,20 @@
+#定义map
+```scala
+import scala.collention.mutable.Map
+val treasureMap = Map[Int,String]()
+treasureMap += (1 -> "Go to is land.")
+treasureMap += (2 -> "b")
+treasureMap += (3 -> "c")
+
+println(treasureMap(2))
+```
+
+```scala
+val romanNumeral = Map( 1 -> "I", 2 -> "II", 3 -> "III", 4 -> "IV", 5 -> "V") 
+println(romanNumeral(4))
+```
+
+```scala
+val a = Map((1,"a"),(2,"b"));
+
+```

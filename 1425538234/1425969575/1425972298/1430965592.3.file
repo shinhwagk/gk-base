@@ -1,0 +1,3 @@
+```scala
+val df = sqlContext.jsonFile("examples/src/main/resources/people.json")
+```

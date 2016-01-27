@@ -1,0 +1,8 @@
+```json
+$ curl -X POST -H "Content-type: application/json" localhost:8080/v2/apps -d '{
+    "id": "sleep-unique",
+    "cmd": "sleep 60",
+    "instances": 3,
+    "constraints": [["hostname", "UNIQUE"]]
+  }'
+```

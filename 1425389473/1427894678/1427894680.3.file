@@ -1,0 +1,17 @@
+###获取-home参数后面的参数值
+```shell
+#!/bin/bash
+ORACLE_HOME=""
+counter=1
+for i in $*
+do
+      if [ $i = "-home" ]
+      then
+         counter=`expr $counter + 1`
+         eval ORACLE_HOME=\$$counter
+         break
+      fi
+         counter=`expr $counter + 1`
+done
+echo $ORACLE_HOME
+```

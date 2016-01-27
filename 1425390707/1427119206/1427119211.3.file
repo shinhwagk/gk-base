@@ -1,0 +1,11 @@
+```scala
+  if ( x > 1 ) 1 else -1
+```
+
+###使用技巧
+```scala
+  val s = if ( x > 1 ) 1 else -1
+  #避免以下写法
+  var s:Int = 1
+  if ( x > 1 ) s = 1 else s = 2
+```

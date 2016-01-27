@@ -1,0 +1,1 @@
+tar -jcvf /tmp/etc.tar.bz2 /etc 

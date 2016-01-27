@@ -1,0 +1,3 @@
+设置slave的属性,这里的参数和值,可以任意设置，只要你高兴,格式的话就是'xxx1:yyy1;xxx2:yyy2'
+在marathon中"constraints": [["rack_id", "CLUSTER", "rack-1"]],就可以用到，rack_id就是你定义的xxxn,rack-1就是yyyn,CLUSTER是固定参数不可变
+--attributes=VALUE      Attributes of machine, in the form: rack:2 or 'rack:2;u:1'

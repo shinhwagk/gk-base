@@ -1,0 +1,2 @@
+指定下载位置和名字
+wget -O "/root/abc.tar.gz" http://xxx.com/cba.tar.gz

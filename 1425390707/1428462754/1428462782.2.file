@@ -1,0 +1,7 @@
+import scala.io.Source
+val source = Source.fromFile("accesss.log","utf-8")
+val lineIterator = source.getLines
+* for (l <- lineIterator)
+* val lines = source.getLines.toArray
+* val contents = source.mkString
+source.close
