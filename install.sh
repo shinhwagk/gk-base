@@ -1,3 +1,4 @@
+#!/bin/bash
 yum install -y gcc pcre-devel zlib-devel libxml2-devel wget tar make git
 cd /tmp
 wget http://cn2.php.net/distributions/php-5.6.17.tar.gz
