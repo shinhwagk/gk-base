@@ -41,4 +41,4 @@ echo '}' >> /usr/local/nginx/conf/nginx.conf
 echo '' >> /usr/local/nginx/conf/nginx.conf
 
 /usr/local/nginx/sbin/nginx
-/usr/local/php/sbin/php-fpm
+php-fpm &
