@@ -3,6 +3,8 @@ rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0
 #yum install -y gcc pcre-devel zlib-devel libxml2-devel wget tar make git php php-fpm nginx
 yum install -y git php php-fpm nginx
 
+mkdir -p /usr/local/nginx/html/document/
+
 #配置nginx
 echo 'worker_processes  1;' > /etc/nginx/nginx.conf
 echo 'events {' >> /etc/nginx/nginx.conf
@@ -34,6 +36,11 @@ echo '        }' >> /etc/nginx/nginx.conf
 echo '    }' >> /etc/nginx/nginx.conf
 echo '}' >> /etc/nginx/nginx.conf
 echo '' >> /etc/nginx/nginx.conf
+
+cd /usr/local/nginx/html
+git clone -b read https://github.com/shinhwagk/gk-base document
+cd /usr/local/nginx/html/document
+git clone -b data https://github.com/shinhwagk/gk-base data
 
 nginx
 php-fpm &
