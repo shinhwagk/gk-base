@@ -1,7 +1,8 @@
 <?php require 'document_path_check.php' ?>
 <html>
 <head>
-  <script src="document/js/jquery-2.1.3.min.js" type="text/javascript"></script>
+  <script charset=utf-8 src="document/js/jquery-2.1.3.min.js" type="text/javascript"></script>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 </head>
 <body>
 <?php require 'document_navigation_html.php' ?>
