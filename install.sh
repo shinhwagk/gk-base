@@ -1,6 +1,7 @@
 #!/bin/bash
 rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-yum install -y gcc pcre-devel zlib-devel libxml2-devel wget tar make git php php-fpm nginx
+#yum install -y gcc pcre-devel zlib-devel libxml2-devel wget tar make git php php-fpm nginx
+yum install -y git php php-fpm nginx
 
 #配置nginx
 echo 'worker_processes  1;' > /etc/nginx/nginx.conf
