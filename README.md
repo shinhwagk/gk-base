@@ -1,5 +1,6 @@
 ﻿# gk-base
 
+##chrome
 
 ```shell
 yum install -y git
