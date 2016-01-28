@@ -16,12 +16,12 @@ echo '    server {' >> /etc/nginx/nginx.conf
 echo '        listen       80;' >> /etc/nginx/nginx.conf
 echo '        server_name  localhost;' >> /etc/nginx/nginx.conf
 echo '        location / {' >> /etc/nginx/nginx.conf
-echo '            root   html;' >> /etc/nginx/nginx.conf
+echo '            root   /usr/local/nginx/html;' >> /etc/nginx/nginx.conf
 echo '            index  index.html index.htm;' >> /etc/nginx/nginx.conf
 echo '        }' >> /etc/nginx/nginx.conf
 echo '        error_page   500 502 503 504  /50x.html;' >> /etc/nginx/nginx.conf
 echo '        location = /50x.html {' >> /etc/nginx/nginx.conf
-echo '            root   html;' >> /etc/nginx/nginx.conf
+echo '            root   /usr/local/nginx/html;' >> /etc/nginx/nginx.conf
 echo '        }' >> /etc/nginx/nginx.conf
 echo '        location ~ \.php$ {' >> /etc/nginx/nginx.conf
 echo '            root           /usr/local/nginx/html/document/php;' >> /etc/nginx/nginx.conf
