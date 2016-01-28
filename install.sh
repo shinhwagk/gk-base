@@ -28,7 +28,7 @@ echo '        location ~ \.php$ {' >> /etc/nginx/nginx.conf
 echo '            root           /usr/local/nginx/html/document/php;' >> /etc/nginx/nginx.conf
 echo '            fastcgi_pass   127.0.0.1:9000;' >> /etc/nginx/nginx.conf
 echo '            fastcgi_index  index.php;' >> /etc/nginx/nginx.conf
-echo '            fastcgi_param  SCRIPT_FILENAME  /document$fastcgi_script_name;' >> /etc/nginx/nginx.conf
+echo '            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;' >> /etc/nginx/nginx.conf
 echo '            include        fastcgi_params;' >> /etc/nginx/nginx.conf
 echo '        }' >> /etc/nginx/nginx.conf
 echo '    }' >> /etc/nginx/nginx.conf
