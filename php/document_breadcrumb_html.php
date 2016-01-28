@@ -1,5 +1,4 @@
 <?php
-
   if(!empty($s_path)){
     $dir_path_str_array = array_slice(explode("/", $s_path),2);
     $href_dir_path="";

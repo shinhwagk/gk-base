@@ -1,7 +1,7 @@
-<?php require 'document_path_check.php' ?>
+<?php $s_path = $_GET["path"]; ?>
 <html>
 <head>
-  <script src="document/js/jquery-2.1.3.min.js" type="text/javascript"></script>
+  <script src="http://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
   <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 </head>
 <body>
