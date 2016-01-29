@@ -3,7 +3,7 @@
 ##chrome
 
 ```shell
-yum install -y git
+yum install -y git createrepo
 cd /tmp
 git clone https://github.com/shinhwagk/gk-base
 cd gk-base
