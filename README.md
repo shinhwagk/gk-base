@@ -12,5 +12,5 @@ cp -r /tmp/gk-base/cgi-bin/ /var/www/
 cp -r /tmp/gk-base/html/ /var/www/
 git checkout data
 mkdir /var/www/data/
-cp -r /tmp.gk-base/* /var/www/data/
+cp -r /tmp/gk-base/* /var/www/data/
 ```
