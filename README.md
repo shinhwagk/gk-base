@@ -1,5 +1,3 @@
-﻿# gk-base
-
 ##浏览器:chrome
 
 ###read
