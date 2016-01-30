@@ -4,7 +4,7 @@ echo ""
   . parse_parameter_mk.sh
 echo -n "
 <meta charset='utf8' />
-<script src='../document/js/epiceditor/js/epiceditor.js' type='text/javascript'></script>
+<script src='../js/epiceditor/js/epiceditor.js' type='text/javascript'></script>
 <script src='http://code.jquery.com/jquery-2.2.0.min.js' type='text/javascript'></script>
 <div style='display:none' id="show_optimization">
   <div id='epiceditor'></div>
