@@ -2,8 +2,10 @@
 
 ##chrome
 
+#####read
 ```shell
 yum install -y git httpd
-cd /tmp
-git clone https://github.com/shinhwagk/gk-base
+cd /var/
+git clone https://github.com/shinhwagk/gk-base www
+git checkout read
 ```
