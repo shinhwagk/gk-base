@@ -12,8 +12,8 @@ echo '<body>'
   . document_navigation_html.sh
 echo '<hr>'
   . document_breadcrumb_html.sh
-  . document_w_dir_dml.sh
 echo '<table style="width:100%">'
+  . document_w.sh
 echo '  <tr>'
 echo '    <td style="width:20%">'
   . document_dir_list_html.sh

@@ -9,8 +9,15 @@ then
     file_1_path=${path}/$i.1.file
     file_2_path=${path}/$i.2.file
     file_3_path=${path}/$i.3.file
+    file_3_size=`ls -l $file_3_path | awk '{print $5}'`
+    
     echo "<tr><td><pre>`cat $file_1_path`</pre></td><td><pre>`cat $file_2_data`</pre></td>"
-    echo "<td><a href='document_markdown_view.sh?markdown=$file_3_path' target='_blank' >view</a></td></tr>";
+    echo "<td>"
+    if [[ $file_3_size != 0 ]]
+    then
+      echo "<a href='document_markdown_view.sh?markdown=$file_3_path' target='_blank' >view</a>";
+    fi
+    echo "</td></tr>"
   done
   echo "<table>"
 fi
