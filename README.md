@@ -1,6 +1,6 @@
 ﻿# gk-base
 
-##chrome
+##浏览器:chrome
 
 ###read
 ```shell
