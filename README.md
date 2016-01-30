@@ -5,7 +5,11 @@
 #####read
 ```shell
 yum install -y git httpd
-cd /var/
-git clone https://github.com/shinhwagk/gk-base www
-git checkout read
+cd /tmp
+git clone -b read https://github.com/shinhwagk/gk-base
+cd gk-base
+cp -r /tmp/gk-base/* /var/www/
+git checkout data
+mkdir /var/www/data/
+cp -r /tmp.gk-base/* /var/www/data/
 ```
