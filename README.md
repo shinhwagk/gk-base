@@ -2,7 +2,7 @@
 
 ##chrome
 
-#####read
+###read
 ```shell
 yum install -y git httpd
 cd /tmp
