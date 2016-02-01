@@ -2,10 +2,10 @@
 echo '<tr><td>'
 echo "
 <div>
-  <button onclick=\"javascript:dir_add('${QUERY_STRING:5}')\">add</button>
+  <button onclick=\"javascript:dir_add('${path}')\">add</button>
   <button id='dir_add'>rename</button>
   <button id='dir_add'>move</button>
-  <button id='a'>del</button>
+  <button onclick=\"javascript:dir_del('${QUERY_STRING:5}')\">del</button>
 </div>"
 echo '</td>'
 echo '<td>'

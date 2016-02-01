@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "Content-type: text/html"  
-echo ""  
+echo "" 
+  . document_parse_url.sh
   . parse_parameter.sh
 echo '<html>'
 echo '<head>'
