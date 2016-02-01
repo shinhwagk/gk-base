@@ -2,7 +2,7 @@
 
 ###read
 ```shell
-yum install -y git httpd
+yum install -y git httpd vim
 cd /tmp
 git clone -b read https://github.com/shinhwagk/gk-base
 cd gk-base
