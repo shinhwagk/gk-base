@@ -2,4 +2,6 @@
 echo "Content-type: text/html"  
 echo ""  
 
-echo $QUERY_STRING
+. document_parse_url.sh
+
+mkdir abc
