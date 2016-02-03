@@ -1,6 +1,7 @@
 #!/bin/bash
-if [[ ! -z $par ]]
+if [[ ! -z $FROM_path ]]
 then
-  path='../data/'$par
-  cat $path"/dir.idx" | while read line; do echo "<a href=?path=$path/$line>`cat $path/$line/dir.name`</a><br>"; done
+  for i in `ls -l $FROM_path | grep '^d' | awk '{print $9}' | grep '^[0-9]\+$'`;do
+    echo "<a href=?path=$FROM_path/$i>`cat $FROM_path/$i/dir.name`</a><br>"
+  done
 fi

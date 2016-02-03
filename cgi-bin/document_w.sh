@@ -10,7 +10,7 @@ echo "
 echo '</td>'
 echo '<td>'
 echo "<div>
-  <button onclick=\"javascript:content_add('${QUERY_STRING:5}')\">add</button>
+  <button onclick=\"javascript:content_add('${path}')\">add</button>
   <button id='content_update'>update</button>
   <button id='content_move'>move</button>
   <button id='content_del'>del</button>

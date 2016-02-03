@@ -1,23 +1,18 @@
 #!/bin/bash
-file_idx_path='../data/'${par}/file.idx
-file_idx_size=`ls -l $file_idx_path |cut -d ' ' -f 5`
+file_idx_size=`ls -l $FROM_path | grep 'file$' | wc -l`
 if [[ $file_idx_size != 0 ]]
 then
   echo "<table border='1' style='width:100%'>"
-  for i in `cat $file_idx_path`
+  for i in `ls -l $FROM_path | grep 'file$' | awk '{print $9}'`
   do
-    file_1_path=${path}/$i.1.file
-    file_2_path=${path}/$i.2.file
-    file_3_path=${path}/$i.3.file
-    file_3_size=`ls -l $file_3_path | awk '{print $5}'`
-    
-    echo "<tr><td><pre>`cat $file_1_path`</pre></td><td><pre>`cat $file_2_data`</pre></td>"
-    echo "<td>"
-    if [[ $file_3_size != 0 ]]
-    then
-      echo "<a href='document_markdown_view.sh?markdown=$file_3_path' target='_blank' >view</a>";
+    if [[ `echo $i | grep '\.1\.' | wc -l` == 1 ]];then
+      echo "<tr><td><pre>`cat $FROM_path/$i`</pre></td>"
+    elif [[ `echo $i | grep '\.2\.' | wc -l` == 1 ]];then
+      echo "<td><pre>`cat $FROM_path/$i`</pre></td>"
+    elif [[ `echo $i | grep '\.3\.' | wc -l` == 1 ]];then
+      echo "<td><a href='document_markdown_view.sh?markdown=$FROM_path/$i' target='_blank' >view</a>";
+      echo "</td></tr>"
     fi
-    echo "</td></tr>"
   done
   echo "<table>"
 fi

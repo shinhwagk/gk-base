@@ -2,7 +2,6 @@
 echo "Content-type: text/html"  
 echo "" 
   . document_parse_url.sh
-  . parse_parameter.sh
 echo '<html>'
 echo '<head>'
 echo '  <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.min.js" charset="utf-8"></script>'
