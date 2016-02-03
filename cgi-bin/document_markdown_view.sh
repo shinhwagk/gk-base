@@ -1,14 +1,14 @@
 #!/bin/bash
 echo "Content-type: text/html"
 echo ""
-  . parse_parameter_mk.sh
+  . document_parse_url.sh
 echo -n "
 <meta charset='utf8' />
 <script src='../js/epiceditor/js/epiceditor.js' type='text/javascript'></script>
 <script src='http://code.jquery.com/jquery-2.2.0.min.js' type='text/javascript'></script>
 <div style='display:none' id="show_optimization">
   <div id='epiceditor'></div>
-  <textarea style='display:none' id='epiceditor_textarea'>`cat $par`</textarea>
+  <textarea style='display:none' id='epiceditor_textarea'>`cat $FROM_markdown`</textarea>
 </div>
 
 "

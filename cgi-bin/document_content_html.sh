@@ -10,8 +10,11 @@ then
     elif [[ `echo $i | grep '\.2\.' | wc -l` == 1 ]];then
       echo "<td><pre>`cat $FROM_path/$i`</pre></td>"
     elif [[ `echo $i | grep '\.3\.' | wc -l` == 1 ]];then
-      echo "<td><a href='document_markdown_view.sh?markdown=$FROM_path/$i' target='_blank' >view</a>";
-      echo "</td></tr>"
+      echo "<td>"
+      if [[ `ls -l $FROM_path/$i | awk '{print $5}'` != 0 ]];then
+        echo "<a href='document_markdown_view.sh?markdown=$FROM_path/$i' target='_blank' >view</a>";
+      fi
+      echo "</td></tr>" 
     fi
   done
   echo "<table>"

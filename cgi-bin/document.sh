@@ -16,7 +16,7 @@ echo '<table style="width:100%">'
   . document_w.sh
 echo '  <tr>'
 echo '    <td style="width:20%">'
-  . document_dir_list_html.sh
+  . document_dir_html.sh
 echo '    </td>'
 echo '    <td style="border-left: 1px solid;padding:15px;width:80%">'
   . document_content_html.sh
