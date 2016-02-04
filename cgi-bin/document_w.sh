@@ -10,9 +10,6 @@ echo "
 echo '</td>'
 echo '<td>'
 echo "<div>
-  <button onclick=\"javascript:content_add('${FROM_path}')\">add</button>
-  <button id='content_update'>update</button>
-  <button id='content_move'>move</button>
-  <button id='content_del'>del</button>
-</div>"
+        <button onclick=\"javascript:content_add('${FROM_path}')\">add</button>
+      </div>"
 echo '</td></tr>'
