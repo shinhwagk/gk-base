@@ -1,6 +1,6 @@
 ##浏览器:chrome
 
-###Init
+##Init
 ```shell
 yum install -y git httpd vim
 rm /var/www
