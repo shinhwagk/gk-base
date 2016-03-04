@@ -8,9 +8,9 @@ if [[ $file_idx_size != 0 ]];then
     file_2_path=${FROM_path}/${i}.2.file
     file_3_path=${FROM_path}/${i}.3.file
     echo "<tr>
-            <td><pre>`cat $file_1_path`</pre></td>
-            <td><pre>`cat $file_2_path`</pre></td>
-            <td>"
+            <td style='width:5%'><pre>`cat $file_1_path`</pre></td>
+            <td style='width:40%'><pre>`cat $file_2_path`</pre></td>
+            <td style='width:40%'>"
     if [[ `ls -l ${file_3_path} | awk '{print $5}'` != 0 ]];then
       echo "  <a href='document_markdown_view.sh?markdown=${file_3_path}' target='_blank'>view</a>";
     fi
@@ -18,7 +18,7 @@ if [[ $file_idx_size != 0 ]];then
 
     if [[ $switch_val == "w" ]];then
       echo "<td>
-              <button>u</button>
+              <a href='document_w_content_update_html.sh?path=${FROM_path}/${i}'>u</a>
               <button>m</button>
               <button>d</button>
             </td>"

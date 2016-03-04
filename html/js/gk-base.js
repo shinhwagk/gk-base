@@ -44,3 +44,8 @@ function content_add(path){
     }
   })
 }
+
+//update
+function content_update(){
+  alert($("#file1").val)
+}
