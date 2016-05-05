@@ -3,7 +3,7 @@
 ##Init
 ```shell
 yum install -y git httpd vim
-rm /var/www
+rm -fr /var/www
 cd /var
 git clone -b read https://github.com/shinhwagk/gk-base www
 cd /var/www
