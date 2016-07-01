@@ -1,5 +1,0 @@
-```scala
-val addresses = List("akka.tcp://OracleImportCassandra_cassandra@192.168.12.42:2553/user/Master",
-    "akka.tcp://OracleImportCassandra_cassandra@192.168.12.41:2553/user/Master")
-val router4: ActorRef = context.actorOf(RoundRobinGroup(addresses).props(), "router4")
-```

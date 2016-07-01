@@ -1,4 +1,0 @@
-val a1 = system.actorOf(MyActor("actor1"))
-val a2 = system.actorOf(MyActor("actor2"))
-val routerProps = Props.empty.withRouter(RoundRobinRouter(routees = Vector(a1, a2)))
-val router = system.actorOf(routerProps)
