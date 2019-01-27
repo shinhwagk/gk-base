@@ -5,9 +5,9 @@
 yum install -y git httpd vim
 rm -fr /var/www
 cd /var
-git clone -b read https://github.com/shinhwagk/gk-base www
+git clone --depth=1 -b read https://github.com/shinhwagk/gk-base www
 cd /var/www
-git clone -b data https://github.com/shinhwagk/gk-base data
+git clone --depth=1 -b data https://github.com/shinhwagk/gk-base data
 httpd
 ```
 ###write
